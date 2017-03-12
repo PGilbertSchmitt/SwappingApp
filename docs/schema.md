@@ -51,7 +51,7 @@ seperate photos table
 
 - Trade Status is currently limited to:
   - Begin ( A initiates trade for B's item )
-  - Return ( B requests A's item )
+  - Pending ( B requests A's item )
   - Complete ( A accepts and completes the trade )
 
 - Should have a trigger that when a trade is complete, no other
