@@ -1,4 +1,4 @@
-``` JSON
+```js
 {
   session: {
     currentUser: {
