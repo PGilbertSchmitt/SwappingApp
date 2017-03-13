@@ -1,8 +1,11 @@
 # SwappinUp
 
-Heroku Link: SOON
+Heroku Link
 
-TrelloLink: SOON
+[TrelloLink][Trello]
+
+
+[Trello]: https://trello.com/b/sUrNOlhv/swappingup
 
 ## MVP
 
