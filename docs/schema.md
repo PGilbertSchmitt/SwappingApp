@@ -18,7 +18,7 @@
 | Column Name | Datatype | Validation            |
 |-------------|----------|-----------------------|
 | id          | INTEGER  | not null, primary key |
-| sender_id   | INTEGER  | not null              |
+| owner_id    | INTEGER  | not null              |
 | name        | STRING   | not null, indexed     |
 | description | TEXT     | not null              |
 | photo       | BLOB     | not null              |
@@ -45,8 +45,8 @@ seperate photos table
 | id               | INTEGER  | not null, primary key |
 | sender_id        | INTEGER  | not null, indexed     |
 | receiver_id      | INTEGER  | not null, indexed     |
-| sender_item_id   | INTEGER  | not null              |
-| receiver_item_id | INTEGER  |                       |
+| receiver_item_id | INTEGER  | not null              |
+| sender_item_id   | INTEGER  |                       |
 | trade_status     | STRING   | not null, inclusion   |
 
 - Trade Status is currently limited to:
