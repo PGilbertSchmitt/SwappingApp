@@ -32,12 +32,12 @@ Bonus:
 [wireframes]: docs/wireframes
 [components]: docs/component-hierarchy.md
 [api]: docs/api-endpoints.md
-[schema]: docs/schema.db
+[schema]: docs/schema.md
 [state]: docs/sample-state.md
 
 ## Timeline
 
-### Phase 1: Backend Setup/Config, Auth ( 1/2 day )
+### Phase 1: Backend Setup/Config, Auth ( 2 day )
 - [ ] Running Rails server
 - [ ] Front end auth
 
@@ -52,7 +52,7 @@ Bonus:
 ### Phase 4: Item components ( 1 day )
 - [ ] Pretty (enough) item store
 
-### Phase 5: Item search ( 2 days )
+### Phase 5: Item search ( 1 days )
 - [ ] Working search page
 
 ### Phase 6: Trading ( 1 days )
