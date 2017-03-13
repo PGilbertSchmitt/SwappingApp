@@ -34,4 +34,4 @@ If a trade completes that would invalidate any other beginning or pending trades
 
 #### Trades page
 
-~[Trades Wireframe](wireframes/trade_requests.png)
+![Trades Wireframe](wireframes/trade_requests.png)
