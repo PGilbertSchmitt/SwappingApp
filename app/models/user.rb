@@ -25,9 +25,9 @@ class User < ApplicationRecord
     SecureRandom::urlsafe_base64(16)
   end
 
-  def self.find_by_credentials(email, password)
+  def self.credentials(email, password)
     user = User.find_by(email: email)
-    user && user.is_password?(password)
+    user && user.is_password?(password) ? user : nil
   end
 
   def password=(password)
@@ -43,7 +43,7 @@ class User < ApplicationRecord
     self.session_token ||= User.generate_token
   end
 
-  def reset_token
+  def reset_session_token!
     self.session_token = User.generate_token
     self.save!
     self.session_token
