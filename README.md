@@ -1,4 +1,4 @@
-# SwappinUp
+# SwappinUp by P. Gilbert Schmitt
 
 Heroku Link
 
