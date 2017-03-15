@@ -21,6 +21,7 @@ export const logout = () => (
   })
 );
 
+// For testing only
 window.signup = signup;
 window.login = login;
 window.logout = logout;
