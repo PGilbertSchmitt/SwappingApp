@@ -9,7 +9,7 @@ export const receiveCurrentUser = user => ({
 });
 
 export const receiveErrors = errors => ({
-  type: receiveErrors,
+  type: RECEIVE_ERRORS,
   errors
 });
 
@@ -18,13 +18,15 @@ export const receiveErrors = errors => ({
 export const signup = user => dispatch => (
   AuthApi.signup(user)
     .done(userBack => dispatch(receiveCurrentUser(userBack)))
-    .fail(errors => dispatch(receiveErrors(errors)))
+    .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+    // .fail(console.log)
 );
 
 export const login = user => dispatch => (
   AuthApi.login(user)
     .done(userBack => dispatch(receiveCurrentUser(userBack)))
-    .fail(errors => dispatch(receiveErrors(errors)))
+    .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+    // .fail(console.log)
 );
 
 export const logout = () => dispatch => (
@@ -32,3 +34,7 @@ export const logout = () => dispatch => (
     .done(userBack => dispatch(receiveCurrentUser(userBack)))
     .fail(errors => dispatch(receiveErrors(errors)))
 );
+
+window.signup = signup;
+window.login = login;
+window.logout = logout;

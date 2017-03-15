@@ -20,8 +20,3 @@ export const logout = () => (
     url: "/api/session"
   })
 );
-
-// For testing only
-window.signup = signup;
-window.login = login;
-window.logout = logout;
