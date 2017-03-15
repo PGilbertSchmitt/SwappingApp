@@ -7,9 +7,13 @@ import {
 
 import Auth from './auth';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = ({ session }, ownProps) => {
   let formType = ownProps.location.pathname.slice(1);
-  return { formType };
+  let errors;
+  if (session.errors.length > 0) {
+    errors = session.errors;
+  }
+  return { formType, errors };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

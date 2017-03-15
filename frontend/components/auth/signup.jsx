@@ -29,38 +29,37 @@ class Signup extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Email
-          <input
-            onChange={this.update('email')}
-            type="text" />
-        </label>
-        <label>
-          Password
-          <input
-            onChange={this.update('password')}
-            type="password" />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            onChange={this.update('password')}
-            type="password" />
-        </label>
-        <label>
-          First Name
-          <input
-            onChange={this.update('email')}
-            type="text" />
-        </label>
-        <label>
-          Last Name
-          <input
-            onChange={this.update('email')}
-            type="text" />
-        </label>
-        <input type="submit" value="Register" />
+      <form className="auth-form" onSubmit={this.handleSubmit}>
+        <h1>Sign Up</h1>
+        <label className="auth-label">Email</label>
+        <input
+          className="form-item"
+          onChange={this.update('email')}
+          type="text" />
+        <label className="auth-label">Password</label>
+        <input
+          className="form-item"
+          onChange={this.update('password')}
+          type="password" />
+        <label className="auth-label">Confirm Password</label>
+        <input
+          className="form-item"
+          onChange={this.update('password')}
+          type="password" />
+        <label className="auth-label">First Name</label>
+        <input
+          className="form-item"
+          onChange={this.update('email')}
+          type="text" />
+        <label className="auth-label">Last Name</label>
+        <input
+          className="form-item"
+          onChange={this.update('email')}
+          type="text" />
+        <input
+          className="form-button primary-button"
+          type="submit"
+          value="Register" />
       </form>
     );
   }

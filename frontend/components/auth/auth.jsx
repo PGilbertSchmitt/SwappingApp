@@ -20,9 +20,22 @@ class Auth extends Component {
     }
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      return (
+        <ul>
+          {this.props.errors.map(err => (
+            <li>{err}</li>
+          ))}
+        </ul>
+      );
+    }
+  }
+
   render() {
     return (
-      <div>
+      <div className="auth-page">
+        { this.renderErrors() }
         { this.renderForm() }
       </div>
     );

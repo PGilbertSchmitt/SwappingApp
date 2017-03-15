@@ -25,20 +25,22 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <label>
-          Email
-          <input
-            onChange={ this.update('email') }
-            type="text" />
-        </label>
-        <label>
-          Password
-          <input
-            onChange={ this.update('password') }
-            type="password" />
-        </label>
-        <input type="submit" value="Login" />
+      <form className="auth-form" onSubmit={this.handleSubmit}>
+        <h1 className="form-h1">Login</h1>
+        <label className="auth-label">Email</label>
+        <input
+          className="u-full-width form-item"
+          onChange={ this.update('email') }
+          type="text" />
+        <label className="auth-label">Password</label>
+        <input
+          className="form-item"
+          onChange={ this.update('password') }
+          type="password" />
+        <input
+          className="form-button primary-button"
+          type="submit"
+          value="Login" />
       </form>
     );
   }
