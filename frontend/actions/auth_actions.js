@@ -19,14 +19,12 @@ export const signup = user => dispatch => (
   AuthApi.signup(user)
     .done(userBack => dispatch(receiveCurrentUser(userBack)))
     .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
-    // .fail(console.log)
 );
 
 export const login = user => dispatch => (
   AuthApi.login(user)
     .done(userBack => dispatch(receiveCurrentUser(userBack)))
     .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
-    // .fail(console.log)
 );
 
 export const logout = () => dispatch => (
