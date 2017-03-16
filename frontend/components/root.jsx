@@ -9,6 +9,7 @@ import {
 
 import App from './app';
 import Auth from './auth/auth_container';
+import Home from './home/home.jsx';
 
 
 class Root extends Component {
@@ -29,9 +30,15 @@ class Root extends Component {
       <Provider store={this.props.store}>
         <Router history={hashHistory}>
           <Route path="/" component={App}>
-            <IndexRoute pathcomponent={Auth} />
-            <Route path="/login" component={Auth} onEnter={this._redirectIfLoggedIn}/>
-            <Route path="/signup" component={Auth} onEnter={this._redirectIfLoggedIn}/>
+            <IndexRoute component={Home} />
+            <Route
+              path="/login" 
+              component={Auth} 
+              onEnter={this._redirectIfLoggedIn} />
+            <Route 
+              path="/signup" 
+              component={Auth} 
+              onEnter={this._redirectIfLoggedIn}/>
           </Route>
         </Router>
       </Provider>

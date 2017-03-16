@@ -35,7 +35,7 @@ class Login extends Component {
           type="text" />
         <label className="auth-label">Password</label>
         <input
-          className="form-item"
+          className="u-full-width form-item"
           onChange={ this.update('password') }
           type="password" />
         <input
