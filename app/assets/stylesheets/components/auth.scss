@@ -1,49 +1,69 @@
 .auth-page {
-  background-color: $purple;
+
+  background-color: $charcoal;
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.auth-form {
-  color: $white;
-  background-color: $red;
-  padding: 40px;
-  border-radius: 40px;
-}
+  .auth-form {
 
-.auth-label {
-  margin: 10px 0px;
-}
+    color: $wine;
+    background-color: $white;
+    padding: 40px;
+    border-radius: 40px;
+    box-sizing: content-box;
+    width: 300px;
 
-.auth-form .form-h1 {
-  text-align: center;
-  font-size: 30px;
-}
+    .auth-label {
+      margin: 20px 0px 5px 0px;
+    }
 
-.auth-form .form-button {
-  border-color: $white;
-  background-color: $blue;
-  color: $white;
-  margin-top: 20px;
-  display: block;
-}
+    .form-h1 {
+      font-family: $sans-bold;
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
 
-.auth-form .form-button:hover {
-  border-color: $white;
-  background-color: $hover-blue;
-  color: $white;
-}
+    .form-button {
+      font-family: $sans-bold;
+      font-size: 12px;
+      border-color: $warm-grey;
+      background-color: $teal;
+      color: $white;
+      margin-top: 20px;
+      display: block;
+    }
 
-.auth-form .form-button:focus {
-  border-color: $white;
-  background-color: $hover-blue;
-  color: $white;
-}
+    .form-button:hover {
+      border-color: $warm-grey;
+      background-color: $teal-hover;
+      color: $white;
+    }
 
-.auth-form .form-item {
-  color: $black;
-  width: 300px;
+    .form-button:focus {
+      border-color: $warm-grey;
+      background-color: $teal-hover;
+      color: $white;
+    }
+
+    .form-item {
+      color: $black;
+      // width: 300px;
+    }
+
+    .error-list {
+      padding-left: 20px;
+      padding-right: 20px;
+      list-style: circle;
+    }
+
+    .form-error {
+      font-family: $sans-bold;
+      color: $error;
+      margin-bottom: 7px;
+    }
+  }
 }
