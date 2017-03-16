@@ -31,5 +31,10 @@ Form's state not storing user information correctly
 ---
 # --3/16--
 
-
+---
+## Bugs:
+### Vendor assets not showing in Heroku
+### Status: Cludged
+### Reason:
+No idea, so I just used a CDN to access the vendor assets. I've never been so frustrated to have my problem solved with a more elegant solution.
 
