@@ -23,3 +23,13 @@ Webpack version 2+ config requires `query` line
 ### Reason:
 Form's state not storing user information correctly
 
+---
+## Accomplished:
+
+- Auth forms built and prettified.
+
+---
+# --3/16--
+
+
+
