@@ -17,8 +17,8 @@
 @import "base/reset.scss";
 
 /* Normalize/Skeleton */
-@import "normalize.css";
-@import "skeleton.css";
+@import "vendor/normalize.css";
+@import "vendor/skeleton.css";
 
 /* Globals */
 @import "base/fonts.scss";
