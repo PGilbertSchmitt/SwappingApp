@@ -11,21 +11,25 @@ class Auth extends Component {
   renderForm() {
     if (this.props.formType === "login") {
       return (
-        <Login login={this.props.action} />
+        <Login
+          renderErrors={() => this.renderErrors(this.props.errors)}
+          login={this.props.action} />
       );
     } else {
       return (
-        <Signup signup={this.props.action} />
+        <Signup
+          renderErrors={() => this.renderErrors(this.props.errors)}
+          signup={this.props.action} />
       );
     }
   }
 
-  renderErrors() {
-    if (this.props.errors) {
+  renderErrors(errors) {
+    if (errors) {
       return (
-        <ul>
-          {this.props.errors.map(err => (
-            <li>{err}</li>
+        <ul className="error-list" >
+          {errors.map(err => (
+            <li className="form-error">{err}</li>
           ))}
         </ul>
       );
@@ -35,7 +39,6 @@ class Auth extends Component {
   render() {
     return (
       <div className="auth-page">
-        { this.renderErrors() }
         { this.renderForm() }
       </div>
     );

@@ -1,4 +1,5 @@
 import * as AuthApi from '../util/auth_util_api';
+import { hashHistory } from 'react-router';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -17,13 +18,19 @@ export const receiveErrors = errors => ({
 
 export const signup = user => dispatch => (
   AuthApi.signup(user)
-    .done(userBack => dispatch(receiveCurrentUser(userBack)))
+    .done(userBack => {
+      dispatch(receiveCurrentUser(userBack));
+      hashHistory.push('/');
+    })
     .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
 export const login = user => dispatch => (
   AuthApi.login(user)
-    .done(userBack => dispatch(receiveCurrentUser(userBack)))
+    .done(userBack => {
+      dispatch(receiveCurrentUser(userBack));
+      hashHistory.push('/');
+    })
     .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 

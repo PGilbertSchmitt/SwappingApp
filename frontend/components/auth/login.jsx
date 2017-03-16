@@ -27,6 +27,7 @@ class Login extends Component {
     return (
       <form className="auth-form" onSubmit={this.handleSubmit}>
         <h1 className="form-h1">Login</h1>
+        { this.props.renderErrors() }
         <label className="auth-label">Email</label>
         <input
           className="u-full-width form-item"
