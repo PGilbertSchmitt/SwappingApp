@@ -10,11 +10,11 @@
 ## MVP
 
 SwappinUp is a bartering service inspired by sites like Etsy. It is build on top of a React frontend with Redux architecture, Ruby-on-Rails backend, and a Postgresql database. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
-- [ ] Hosting on Heroku
-- [ ] Signup, login, and guest/demo login
+- [x] Hosting on Heroku
+- [x] Signup, login, and guest/demo login
 - [ ] Production Readme
 - [ ] Product Listing
-- [ ] Proposal/Appectance
+- [ ] Proposal/Acceptance
 - [ ] Search
 - [ ] Categories
 
@@ -38,16 +38,16 @@ Bonus:
 ## Timeline
 
 ### Phase 1: Backend Setup/Config, Auth ( 2 day )
-- [ ] Running Rails server
-- [ ] Front end auth
+- [x] Running Rails server
+- [x] Front end auth
 
 ### Phase 2: Items ( 1/2 day )
-- [ ] Working item model
-- [ ] Items can be added/removed through API
+- [x] Working item model
+- [x] Items can be added/removed through API
 
 ### Phase 3: Homepage ( 1 day )
-- [ ] Header bar
-- [ ] Links bar
+- [x] Header bar
+- [ ] Links bar // Considered for removal
 
 ### Phase 4: Item components ( 1 day )
 - [ ] Pretty (enough) item store
