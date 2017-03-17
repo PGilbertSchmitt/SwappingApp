@@ -4,7 +4,16 @@ import { Link } from 'react-router';
 class Header extends Component {
   constructor(props) {
     super(props);
+    this.demo = this.demo.bind(this);
     this.navItems = this.navItems.bind(this);
+  }
+
+  demo() {
+    const demoUser = {
+      email: "demo@swappinup.com",
+      password: "password"
+    }
+    this.props.login(demoUser);
   }
 
   navItems() {
@@ -30,6 +39,7 @@ class Header extends Component {
     } else {
       return (
         <ul className="nav-list">
+          <li className="nav-item" onClick={this.demo}>Demo</li>
           <Link to="/login"><li className="nav-item">Login</li></Link>
           <Link to="/signup"><li className="nav-item">Sign Up</li></Link>
         </ul>
