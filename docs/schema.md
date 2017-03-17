@@ -28,15 +28,13 @@
 seperate photos table
 
 - Category is currently limited to:
-  - Potion
-  - Weapon
-  - Armor
-  - Garb
-  - Gear
-  - Ingredient
-  - Familiar
-  - Artefact
-  - Spell
+  - Clothing
+  - Jewelry
+  - Crafts
+  - Entertainment
+  - Home and Living
+  - Kids
+  - Gaming
 
 ## TradeRequests
 
