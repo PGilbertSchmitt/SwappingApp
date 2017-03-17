@@ -1,6 +1,11 @@
 class Api::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    user = User.find_by(id: params[:user_id])
+    if user
+      @items = user.items
+    else
+      @items = []
+    end
   end
   
   def show
