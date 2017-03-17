@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id          :integer          not null, primary key
+#  owner_id    :integer          not null
+#  name        :string           not null
+#  description :text             not null
+#  photo_url   :string           not null
+#  category    :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Item < ApplicationRecord
   CATEGORIES = %w(
     clothing
