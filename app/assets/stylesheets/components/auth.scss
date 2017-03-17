@@ -1,20 +1,25 @@
 .auth-page {
-
-  background-color: $charcoal;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $charcoal;
 
   .auth-form {
-
     color: $wine;
     background-color: $white;
     padding: 40px;
     border-radius: 40px;
     box-sizing: content-box;
     width: 300px;
+    z-index: 1000;
 
     .auth-label {
       margin: 20px 0px 5px 0px;
@@ -51,7 +56,6 @@
 
     .form-item {
       color: $black;
-      // width: 300px;
     }
 
     .error-list {
