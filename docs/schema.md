@@ -18,10 +18,10 @@
 | Column Name | Datatype | Validation            |
 |-------------|----------|-----------------------|
 | id          | INTEGER  | not null, primary key |
-| owner_id    | INTEGER  | not null              |
+| owner_id    | INTEGER  | not null, indexed     |
 | name        | STRING   | not null, indexed     |
 | description | TEXT     | not null              |
-| photo       | BLOB     | not null              |
+| photo_url   | STRING   | not null              |
 | category    | STRING   | not null, inclusion   |
 
 - If multiple photos are allowed per item, I'll have to use
