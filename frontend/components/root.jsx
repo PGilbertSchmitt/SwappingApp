@@ -11,7 +11,6 @@ import App from './app';
 import Auth from './auth/auth_container';
 import Home from './home/home.jsx';
 
-
 class Root extends Component {
   constructor(props) {
     super(props);
@@ -33,11 +32,11 @@ class Root extends Component {
             <IndexRoute component={Home} />
             <Route
               path="/login" 
-              component={Auth} 
+              component={Auth}
               onEnter={this._redirectIfLoggedIn} />
             <Route 
               path="/signup" 
-              component={Auth} 
+              component={Auth}
               onEnter={this._redirectIfLoggedIn}/>
           </Route>
         </Router>

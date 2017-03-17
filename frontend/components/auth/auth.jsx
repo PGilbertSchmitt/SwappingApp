@@ -12,12 +12,14 @@ class Auth extends Component {
     if (this.props.formType === "login") {
       return (
         <Login
+          cleanErrors={() => this.props.cleanErrors()}
           renderErrors={() => this.renderErrors(this.props.errors)}
           login={this.props.action} />
       );
     } else {
       return (
         <Signup
+          cleanErrors={this.props.cleanErrors}
           renderErrors={() => this.renderErrors(this.props.errors)}
           signup={this.props.action} />
       );

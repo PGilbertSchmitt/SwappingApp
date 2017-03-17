@@ -11,6 +11,10 @@ class Login extends Component {
     this.update = this.update.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.cleanErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state);
