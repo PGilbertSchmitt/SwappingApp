@@ -6,6 +6,7 @@ class Signup extends Component {
     this.state = {
       email: "",
       password: "",
+      confirmPassword: "",
       fname: "",
       lname: "",
       address: "",
@@ -13,22 +14,53 @@ class Signup extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.validForm = this.validForm.bind(this);
+    this.clearPasswords = this.clearPasswords.bind(this);
   }
 
   componentWillUnmount() {
     this.props.cleanErrors();
   }
 
+  componentWillReceiveProps(newProps) {
+    this.clearPasswords();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state);
-    console.log(this.state);
+    if (this.validForm()) {
+      this.props.signup(this.state);
+    } else {
+      this.clearPasswords();
+    }
   }
 
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value });
     };
+  }
+
+  validForm() {
+    const password = this.state.password;
+    const confirm = this.state.confirmPassword;
+    if (password !== confirm) {
+      this.props.receiveError("Passwords do not match");
+      return false;
+    }
+
+    return true;
+  }
+
+  clearPasswords() {
+    // Passwords should be wiped between tries for security
+    this.setState({
+      password: "",
+      confirmPassword: ""
+    });
+
+    document.getElementById("password").value = "";
+    document.getElementById("confirm-password").value = "";
   }
 
   render() {
@@ -43,23 +75,25 @@ class Signup extends Component {
           type="text" />
         <label className="auth-label">Password</label>
         <input
+          id="password"
           className="form-item u-full-width"
           onChange={this.update('password')}
           type="password" />
         <label className="auth-label">Confirm Password</label>
         <input
+          id="confirm-password"
           className="form-item u-full-width"
-          onChange={this.update('password')}
+          onChange={this.update('confirmPassword')}
           type="password" />
         <label className="auth-label">First Name</label>
         <input
           className="form-item u-full-width"
-          onChange={this.update('email')}
+          onChange={this.update('lname')}
           type="text" />
         <label className="auth-label">Last Name</label>
         <input
           className="form-item u-full-width"
-          onChange={this.update('email')}
+          onChange={this.update('fname')}
           type="text" />
         <input
           className="form-button primary-button"

@@ -5,6 +5,7 @@ import Auth from './auth';
 import {
   signup,
   login,
+  receiveAuthError,
   cleanAuthErrors
 } from '../../actions/auth_actions';
 
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   let action = formType === "login" ? login : signup;
   return {
     action: user => dispatch(action(user)),
+    receiveError: error => dispatch(receiveAuthError(error)),
     cleanErrors: () => dispatch(cleanAuthErrors())
   };
 };

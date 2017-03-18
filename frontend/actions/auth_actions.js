@@ -3,6 +3,7 @@ import { hashHistory } from 'react-router';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_AUTH_ERRORS = "RECEIVE_AUTH_ERRORS";
+export const RECEIVE_AUTH_ERROR = "RECEIVE_AUTH_ERROR";
 export const CLEAN_AUTH_ERRORS = "CLEAN_AUTH_ERRORS";
 
 export const receiveCurrentUser = user => ({
@@ -13,6 +14,11 @@ export const receiveCurrentUser = user => ({
 export const receiveAuthErrors = errors => ({
   type: RECEIVE_AUTH_ERRORS,
   errors
+});
+
+export const receiveAuthError = error => ({
+  type: RECEIVE_AUTH_ERROR,
+  error
 });
 
 export const cleanAuthErrors = () => ({

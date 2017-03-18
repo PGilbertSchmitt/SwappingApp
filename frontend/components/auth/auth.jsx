@@ -13,6 +13,7 @@ class Auth extends Component {
       return (
         <Login
           cleanErrors={() => this.props.cleanErrors()}
+          receiveError={this.props.receiveError}
           renderErrors={() => this.renderErrors(this.props.errorList)}
           login={this.props.action} />
       );
@@ -20,6 +21,7 @@ class Auth extends Component {
       return (
         <Signup
           cleanErrors={this.props.cleanErrors}
+          receiveError={this.props.receiveError}
           renderErrors={() => this.renderErrors(this.props.errorList)}
           signup={this.props.action} />
       );
