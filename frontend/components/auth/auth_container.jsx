@@ -5,16 +5,16 @@ import Auth from './auth';
 import {
   signup,
   login,
-  cleanErrors
+  cleanAuthErrors
 } from '../../actions/auth_actions';
 
-const mapStateToProps = ({ session }, ownProps) => {
+const mapStateToProps = ({ errors }, ownProps) => {
   let formType = ownProps.location.pathname.slice(1);
-  let errors;
-  if (session.errors.length > 0) {
-    errors = session.errors;
+  let errorList;
+  if (errors.auth.length > 0) {
+    errorList = errors.auth;
   }
-  return { formType, errors };
+  return { formType, errorList };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   let action = formType === "login" ? login : signup;
   return {
     action: user => dispatch(action(user)),
-    cleanErrors: () => dispatch(cleanErrors())
+    cleanErrors: () => dispatch(cleanAuthErrors())
   };
 };
 

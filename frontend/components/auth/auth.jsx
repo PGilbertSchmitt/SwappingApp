@@ -13,14 +13,14 @@ class Auth extends Component {
       return (
         <Login
           cleanErrors={() => this.props.cleanErrors()}
-          renderErrors={() => this.renderErrors(this.props.errors)}
+          renderErrors={() => this.renderErrors(this.props.errorList)}
           login={this.props.action} />
       );
     } else {
       return (
         <Signup
           cleanErrors={this.props.cleanErrors}
-          renderErrors={() => this.renderErrors(this.props.errors)}
+          renderErrors={() => this.renderErrors(this.props.errorList)}
           signup={this.props.action} />
       );
     }
@@ -28,10 +28,11 @@ class Auth extends Component {
 
   renderErrors(errors) {
     if (errors) {
+      let i = 0;
       return (
         <ul className="error-list" >
           {errors.map(err => (
-            <li className="form-error">{err}</li>
+            <li key={i++} className="form-error">{err}</li>
           ))}
         </ul>
       );

@@ -2,21 +2,21 @@ import * as AuthApi from '../util/auth_util_api';
 import { hashHistory } from 'react-router';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const CLEAN_ERRORS = "CLEAN_ERRORS";
+export const RECEIVE_AUTH_ERRORS = "RECEIVE_AUTH_ERRORS";
+export const CLEAN_AUTH_ERRORS = "CLEAN_AUTH_ERRORS";
 
 export const receiveCurrentUser = user => ({
   type: RECEIVE_CURRENT_USER,
   user
 });
 
-export const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+export const receiveAuthErrors = errors => ({
+  type: RECEIVE_AUTH_ERRORS,
   errors
 });
 
-export const cleanErrors = () => ({
-  type: CLEAN_ERRORS
+export const cleanAuthErrors = () => ({
+  type: CLEAN_AUTH_ERRORS
 });
 
 // THUNKERS
@@ -27,7 +27,7 @@ export const signup = user => dispatch => (
       dispatch(receiveCurrentUser(userBack));
       hashHistory.push('/');
     })
-    .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+    .fail(errors => dispatch(receiveAuthErrors(errors.responseJSON)))
 );
 
 export const login = user => dispatch => (
@@ -36,13 +36,13 @@ export const login = user => dispatch => (
       dispatch(receiveCurrentUser(userBack));
       hashHistory.push('/');
     })
-    .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+    .fail(errors => dispatch(receiveAuthErrors(errors.responseJSON)))
 );
 
 export const logout = () => dispatch => (
   AuthApi.logout()
     .done(userBack => dispatch(receiveCurrentUser(userBack)))
-    .fail(errors => dispatch(receiveErrors(errors)))
+    .fail(errors => dispatch(receiveAuthErrors(errors)))
 );
 
 // For testing only
