@@ -1,9 +1,27 @@
-export const getUserItems = userId => (
-  $.ajax({
+import merge from 'lodash/merge';
+
+export const getUserItems = (userId, params = {}) => {
+  const searchParams = merge(
+    {},
+    { user_id: userId },
+    params
+  );
+
+  const searchQuery = $.param(searchParams);
+  
+  return $.ajax({
     method: "GET",
-    url: `/api/users/${userId}/items`
-  })
-);
+    url: `/api/items/?${searchQuery}`
+  });
+};
+
+export const searchItems = searchParams => {
+  const searchQuery = $.param(searchParams);
+  return $.ajax({
+    method: "GET",
+    url: `/api/items/?${searchQuery}`
+  });
+};
 
 export const getItem = itemId => (
   $.ajax({

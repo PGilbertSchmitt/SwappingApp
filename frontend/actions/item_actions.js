@@ -21,8 +21,13 @@ export const removeItem = itemId => ({
 
 // THUNKERS
 
-export const getUserItems = userID => dispatch => (
-  ItemApi.getUserItems(userID)
+export const getUserItems = (userId, params) => dispatch => (
+  ItemApi.getUserItems(userId, params)
+    .done(items => dispatch(receiveItems(items)))
+);
+
+export const searchItems = searchParams => dispatch => (
+  ItemApi.searchItems(searchParams)
     .done(items => dispatch(receiveItems(items)))
 );
 
@@ -48,6 +53,7 @@ export const destroyItem = itemId => dispatch => (
 
 // For testing only
 window.getUserItems = getUserItems;
+window.searchItems = searchItems;
 window.getItem = getItem;
 window.createItem = createItem;
 window.updateItem = updateItem;

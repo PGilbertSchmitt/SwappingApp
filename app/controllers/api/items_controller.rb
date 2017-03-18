@@ -1,11 +1,7 @@
 class Api::ItemsController < ApplicationController
   def index
-    user = User.find_by(id: params[:user_id])
-    if user
-      @items = user.items
-    else
-      @items = []
-    end
+    # Refactor into helper functions
+    @items = helpers.search_items
   end
   
   def show
