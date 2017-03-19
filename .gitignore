@@ -25,3 +25,6 @@ npm-debug.log
 # Precompiled assets
 /public/assets/application-*
 /public/assets/.sprockets-manifest-*
+
+# Ignore application configuration
+/config/application.yml
