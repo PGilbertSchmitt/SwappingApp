@@ -21,3 +21,7 @@ bundle.js*
 .DS_Store
 npm-debug.log
 .vscode/
+
+# Precompiled assets
+/public/assets/application-*
+/public/assets/.sprockets-manifest-*
