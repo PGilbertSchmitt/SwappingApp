@@ -4,7 +4,9 @@ import Header from './nav/header_container';
 
 const App = ({ children }) => (
   <div>
-    <Header />    
+    <Header />
+    <div className="background"></div>
+    
     {children}
   </div>
 );

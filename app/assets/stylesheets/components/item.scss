@@ -3,6 +3,8 @@
   // height: 200px;
   background-color: red;
   display: inline-block;
+  cursor: pointer;
+  transition: box-shadow 0.07s;
 
   .item-photo-container {
     height: 75%;
@@ -18,4 +20,8 @@
     height: 25%;
     background-color: green;
   }
+}
+
+.item-container:hover {
+  box-shadow: 0px 0px 5px $warm-grey;
 }
