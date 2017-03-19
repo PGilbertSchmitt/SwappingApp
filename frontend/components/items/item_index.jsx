@@ -21,11 +21,11 @@ class ItemIndex extends Component {
     this.props.searchItems(this.props.fetchParams);
   }
 
-  createRow(items) {
+  createRow(items, i) {
     return (
-      <div className="row item-row">
-        {items.map(item => (
-          <div className="three columns item-box">
+      <div className="row item-row" key={i}>
+        {items.map((item, j) => (
+          <div className="three columns item-box" key={(i * 4) + j}>
             <Item item={item} />
           </div>
         ))}
@@ -41,7 +41,7 @@ class ItemIndex extends Component {
       itemRows.push(itemRow);
     }
     
-    return itemRows.map(items => this.createRow(items));
+    return itemRows.map((items, i) => this.createRow(items, i));
   }
 
   render() {

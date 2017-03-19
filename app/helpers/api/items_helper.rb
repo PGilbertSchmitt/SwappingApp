@@ -8,6 +8,8 @@ module Api::ItemsHelper
     # For each item, only incude in item_params if it exists,
     # otherwise the database specificaly looks for NULL values
 
+    return Item.all if params[:all]
+
     item_params[:owner_id] = params[:user_id] if params[:user_id]
 
     category = params[:category]
