@@ -21,8 +21,12 @@ class Header extends Component {
       const user = this.props.currentUser;
       return (
         <ul className="nav-list">
-          <Link to="/garage"><li className="nav-item">Garage</li></Link>
-          <Link to="/trades"><li className="nav-item">Trades</li></Link>
+          <Link to={`/${user.id}/garage`}>
+            <li className="nav-item">Garage</li>
+          </Link>
+          <Link to="/trades">
+            <li className="nav-item">Trades</li>
+          </Link>
           <li className="nav-item">
             <i className="fa fa-user" alt="User Profile"></i>
             <ul className="dropdown-menu">
