@@ -11,7 +11,7 @@ module Api::ItemsHelper
     item_params[:owner_id] = params[:user_id] if params[:user_id]
 
     category = params[:category]
-    item_params[:category] = category if Item.categories.include?(category)
+    item_params[:category] = Item.categories.include?(category) ? category : nil
 
     Item.where(item_params)
   end

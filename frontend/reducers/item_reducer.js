@@ -6,7 +6,7 @@ import {
   REMOVE_ITEM
 } from '../actions/item_actions';
 
-const itemReducer = (state = {}, action) => {
+const itemReducer = (state = [], action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 
@@ -25,3 +25,5 @@ const itemReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export default itemReducer;

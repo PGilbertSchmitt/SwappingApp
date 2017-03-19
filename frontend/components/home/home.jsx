@@ -5,7 +5,7 @@ import ItemIndex from '../items/item_index_container';
 const Home = (props) => (
   <div className="homepage">
     <div className="background"></div>
-    <ItemIndex />
+    <ItemIndex fetchParams={{category: "kidos"}}/>
     {/*categories*/}
     {/*children*/}
     {/*links*/}
