@@ -3,6 +3,8 @@ import * as ItemApi from '../util/item_util_api';
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
+export const RECEIVE_ITEM_ERRORS = "RECEIVE_ITEM_ERRORS";
+export const CLEAN_ITEM_ERRORS = "CLEAN_ITEM_ERRORS";
 
 export const receiveItems = items => ({
   type: RECEIVE_ITEMS,
@@ -19,12 +21,16 @@ export const removeItem = itemId => ({
   itemId
 });
 
-// THUNKERS
+export const receiveItemErrors = errors => ({
+  type: RECEIVE_ITEM_ERRORS,
+  errors
+});
 
-export const getUserItems = (userId, params) => dispatch => (
-  ItemApi.getUserItems(userId, params)
-    .done(items => dispatch(receiveItems(items)))
-);
+export const cleanItemErrors = () => ({
+  type: CLEAN_ITEM_ERRORS
+});
+
+// THUNKERS
 
 export const searchItems = searchParams => dispatch => (
   ItemApi.searchItems(searchParams)
@@ -39,11 +45,13 @@ export const getItem = itemId => dispatch => (
 export const createItem = itemIn => dispatch => (
   ItemApi.createItem(itemIn)
     .done(item => dispatch(receiveItem(item)))
+    .fail(errors => dispatch(receiveItemErrors(errors)))
 );
 
 export const updateItem = itemIn => dispatch => (
   ItemApi.updateItem(itemIn)
     .done(item => dispatch(receiveItem(item)))
+    .fail(errors => dispatch(receiveItemErrors(errors)))
 );
 
 export const destroyItem = itemId => dispatch => (
@@ -52,7 +60,6 @@ export const destroyItem = itemId => dispatch => (
 );
 
 // For testing only
-window.getUserItems = getUserItems;
 window.searchItems = searchItems;
 window.getItem = getItem;
 window.createItem = createItem;

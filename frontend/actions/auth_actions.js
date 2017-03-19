@@ -19,7 +19,7 @@ export const receiveAuthErrors = errors => ({
 export const receiveAuthError = error => ({
   type: RECEIVE_AUTH_ERROR,
   error
-});
+}); 
 
 export const cleanAuthErrors = () => ({
   type: CLEAN_AUTH_ERRORS

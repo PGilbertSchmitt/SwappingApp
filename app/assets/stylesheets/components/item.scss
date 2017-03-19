@@ -1,0 +1,21 @@
+.item-container {
+  // width: 200px;
+  // height: 200px;
+  background-color: red;
+  display: inline-block;
+
+  .item-photo-container {
+    height: 75%;
+    background-color: blue;
+    overflow: hidden;
+
+    .item-photo {
+      object-fit: cover;
+    }
+  }
+
+  .item-info-container {
+    height: 25%;
+    background-color: green;
+  }
+}
