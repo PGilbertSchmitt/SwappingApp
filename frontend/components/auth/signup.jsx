@@ -65,32 +65,32 @@ class Signup extends Component {
 
   render() {
     return (
-      <form className="auth-form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <h1 className="form-h1">Sign Up</h1>
         { this.props.renderErrors() }
-        <label className="auth-label">Email</label>
+        <label className="form-label">Email</label>
         <input
           className="form-item u-full-width"
           onChange={this.update('email')}
           type="text" />
-        <label className="auth-label">Password</label>
+        <label className="form-label">Password</label>
         <input
           id="password"
           className="form-item u-full-width"
           onChange={this.update('password')}
           type="password" />
-        <label className="auth-label">Confirm Password</label>
+        <label className="form-label">Confirm Password</label>
         <input
           id="confirm-password"
           className="form-item u-full-width"
           onChange={this.update('confirmPassword')}
           type="password" />
-        <label className="auth-label">First Name</label>
+        <label className="form-label">First Name</label>
         <input
           className="form-item u-full-width"
           onChange={this.update('lname')}
           type="text" />
-        <label className="auth-label">Last Name</label>
+        <label className="form-label">Last Name</label>
         <input
           className="form-item u-full-width"
           onChange={this.update('fname')}

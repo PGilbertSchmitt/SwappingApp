@@ -1,6 +1,35 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 
 import ItemIndex from '../items/item_index_container';
+import ItemForm from '../items/item_form_container';
+
+const style = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    zIndex: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  content: {
+    position: 'fixed',
+    top: 'none',
+    left: 'none',
+    right: 'none',
+    bottom: 'none',
+    width: '380px',
+    padding: '0',
+    border: '0',
+    backgroundColor: 'transparent',
+    zIndex: 11
+  }
+}
 
 class Garage extends Component {
   constructor(props) {
@@ -13,11 +42,13 @@ class Garage extends Component {
     };
     props.fetchUserData(this.state.user_id);
     props.cleanUserErrors();
-    this.fetchParams = this.fetchParams.bind(this);
-    this.renderHeader = this.renderHeader.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
-    this.renderForm = this.renderForm.bind(this);
-    this.isCurrentUser = this.isCurrentUser.bind(this);
+    this.fetchParams    = this.fetchParams.bind(this);
+    this.renderHeader   = this.renderHeader.bind(this);
+    this.renderErrors   = this.renderErrors.bind(this);
+    this.renderForm     = this.renderForm.bind(this);
+    this.isCurrentUser  = this.isCurrentUser.bind(this);
+    this.openModal      = this.openModal.bind(this);
+    this.closeModal     = this.closeModal.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -28,7 +59,8 @@ class Garage extends Component {
 
     this.setState({
       user_id: props.params.user_id,
-      user: props.user
+      user: props.user,
+      modalOpen: false
     });
   }
 
@@ -70,9 +102,17 @@ class Garage extends Component {
   renderForm() {
     if (this.isCurrentUser()) {
       return (
-        <h1>Form goes here</h1>
+        <ItemForm formType="new" closeModal={this.closeModal} />
       );
     }
+  }
+
+  openModal() {
+    this.setState({ modalOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
   }
 
   render() {
@@ -87,7 +127,15 @@ class Garage extends Component {
         <div className="garage-container">
           {this.renderHeader()}
           <ItemIndex fetchParams={this.fetchParams()} />
-          {this.renderForm()}
+          <button onClick={this.openModal}>Open Modal</button>
+          <Modal
+            isOpen={this.state.modalOpen}
+            style={style}
+            onRequestClose={this.closeModal}
+            contentLabel="New Object Form"
+          >
+            {this.renderForm()}
+          </Modal>
         </div>
       );
     }

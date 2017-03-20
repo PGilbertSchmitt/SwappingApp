@@ -43,7 +43,7 @@ class Auth extends Component {
 
   render() {
     return (
-      <div className="auth-page">
+      <div className="form-page">
         { this.renderForm() }
       </div>
     );

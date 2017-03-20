@@ -28,15 +28,15 @@ class Login extends Component {
 
   render() {
     return (
-      <form className="auth-form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <h1 className="form-h1">Login</h1>
         { this.props.renderErrors() }
-        <label className="auth-label">Email</label>
+        <label className="form-label">Email</label>
         <input
           className="u-full-width form-item"
           onChange={ this.update('email') }
           type="text" />
-        <label className="auth-label">Password</label>
+        <label className="form-label">Password</label>
         <input
           className="u-full-width form-item"
           onChange={ this.update('password') }
