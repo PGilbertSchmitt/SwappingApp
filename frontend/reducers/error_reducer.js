@@ -11,9 +11,15 @@ import {
   CLEAN_ITEM_ERRORS
 } from '../actions/item_actions';
 
+import {
+  RECEIVE_USER_ERRORS,
+  CLEAN_USER_ERRORS
+} from '../actions/user_actions';
+
 const defaultState = {
   auth: [],
-  item: []
+  item: [],
+  user: []
 };
 
 // Should maybe break up into multiple error reducers;
@@ -40,6 +46,12 @@ const errorReducer = (state = defaultState, action) => {
       return newState;
     case CLEAN_ITEM_ERRORS:
       newState.item = [];
+      return newState;
+    case RECEIVE_USER_ERRORS:
+      newState.user = action.errors;
+      return newState;
+    case CLEAN_USER_ERRORS:
+      newState.user = [];
       return newState;
     default:
       return state;

@@ -14,11 +14,13 @@ class Garage extends Component {
     props.fetchUserData(this.state.user_id);
     this.fetchParams = this.fetchParams.bind(this);
     this.header = this.header.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentWillReceiveProps(props) {
     if (props.params.user_id !== this.state.user_id) {
       this.props.fetchUserData(props.params.user_id);
+      this.props.cleanUserErrors();
     }
 
     this.setState({
@@ -51,7 +53,20 @@ class Garage extends Component {
     }
   }
 
+  renderErrors() {
+    return this.props.userErrors.map(error => (
+      <h1 className="garage-header error-header">{error}</h1>
+    ));
+  }
+
   render() {
+    if (this.props.userErrors.length > 0) {
+      return (
+        <div className="garage-container">
+          {this.renderErrors()}
+        </div>
+      )
+    }
     return (
       <div className="garage-container">
         {this.header()}
