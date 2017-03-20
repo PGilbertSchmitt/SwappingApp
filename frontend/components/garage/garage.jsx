@@ -37,10 +37,7 @@ class Garage extends Component {
   header() {
     const currentUser = this.props.currentUser;
     const user = this.state.user;
-    console.log(currentUser.id)
-    console.log(this.state.user_id);
 
-    // console.log(user);
     if (currentUser && (currentUser.id === parseInt(this.state.user_id))) {
       return (
         <h1 className="garage-header">My Items</h1>
@@ -55,7 +52,6 @@ class Garage extends Component {
   }
 
   render() {
-    // console.log("Rendering Garage");
     return (
       <div className="garage-container">
         {this.header()}

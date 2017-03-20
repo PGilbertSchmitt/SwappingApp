@@ -17,12 +17,10 @@ class ItemIndex extends Component {
       this.props.searchItems(fetchParams);
     }
     this.setState({ fetchParams });
-    console.log(fetchParams);
   }
 
   componentDidMount() {
     this.props.searchItems(this.props.fetchParams);
-    console.log("Mounting Item Index");
   }
 
   createRow(items, i) {
@@ -30,7 +28,6 @@ class ItemIndex extends Component {
       <div className="row item-row" key={i}>
         {items.map((item, j) => (
           <div className="three columns item-box" key={(i * 4) + j}>
-            {console.log(item)}
             <Item item={item} />
           </div>
         ))}
@@ -50,7 +47,6 @@ class ItemIndex extends Component {
   }
 
   render() {
-    console.log("Rendering Item Index");
     return (
       <div className="container items-index">
         {this.formatItems()}
