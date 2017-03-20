@@ -12,8 +12,9 @@ class Garage extends Component {
       }
     };
     props.fetchUserData(this.state.user_id);
+    props.cleanUserErrors();
     this.fetchParams = this.fetchParams.bind(this);
-    this.header = this.header.bind(this);
+    this.renderHeader = this.renderHeader.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
@@ -36,7 +37,7 @@ class Garage extends Component {
     };
   }
 
-  header() {
+  renderHeader() {
     const currentUser = this.props.currentUser;
     const user = this.state.user;
 
@@ -54,8 +55,8 @@ class Garage extends Component {
   }
 
   renderErrors() {
-    return this.props.userErrors.map(error => (
-      <h1 className="garage-header error-header">{error}</h1>
+    return this.props.userErrors.map((error, i) => (
+      <h1 className="garage-header error-header" key={i}>{error}</h1>
     ));
   }
 
@@ -69,7 +70,7 @@ class Garage extends Component {
     } else {
       return (
         <div className="garage-container">
-          {this.header()}
+          {this.renderHeader()}
           <ItemIndex fetchParams={this.fetchParams()} />
         </div>
       );
