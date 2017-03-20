@@ -16,6 +16,8 @@ class Garage extends Component {
     this.fetchParams = this.fetchParams.bind(this);
     this.renderHeader = this.renderHeader.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.renderForm = this.renderForm.bind(this);
+    this.isCurrentUser = this.isCurrentUser.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -37,18 +39,23 @@ class Garage extends Component {
     };
   }
 
-  renderHeader() {
+  isCurrentUser() {
     const currentUser = this.props.currentUser;
     const user = this.state.user;
 
-    if (currentUser && (currentUser.id === parseInt(this.state.user_id))) {
+    return currentUser && (currentUser.id === parseInt(this.state.user_id))
+      ? true : false;
+  }
+
+  renderHeader() {
+    if (this.isCurrentUser()) {
       return (
         <h1 className="garage-header">My Items</h1>
       );
     } else {
       return (
         <h1 className="garage-header">
-          {user.username}'s garage
+          {this.state.user.username}'s garage
         </h1>
       );
     }
@@ -58,6 +65,14 @@ class Garage extends Component {
     return this.props.userErrors.map((error, i) => (
       <h1 className="garage-header error-header" key={i}>{error}</h1>
     ));
+  }
+
+  renderForm() {
+    if (this.isCurrentUser()) {
+      return (
+        <h1>Form goes here</h1>
+      );
+    }
   }
 
   render() {
@@ -72,6 +87,7 @@ class Garage extends Component {
         <div className="garage-container">
           {this.renderHeader()}
           <ItemIndex fetchParams={this.fetchParams()} />
+          {this.renderForm()}
         </div>
       );
     }
