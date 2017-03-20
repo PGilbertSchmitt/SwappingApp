@@ -53,4 +53,12 @@ class User < ApplicationRecord
     self.save!
     self.session_token
   end
+
+  def username
+    if self.fname && self.lname
+      "#{self.fname} #{self.lname}"
+    else
+      self.fname || self.lname || self.email
+    end
+  end
 end

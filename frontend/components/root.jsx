@@ -11,7 +11,7 @@ import App from './app';
 import Auth from './auth/auth_container';
 import Home from './home/home.jsx';
 import Profile from './profile/profile';
-import Garage from './garage/garage';
+import Garage from './garage/garage_container';
 
 class Root extends Component {
   constructor(props) {
@@ -41,6 +41,16 @@ class Root extends Component {
             <IndexRoute component={Home} />
 
             <Route
+              path="/login"
+              component={Auth}
+              onEnter={this._redirectIfLoggedIn} />
+
+            <Route
+              path="/signup"
+              component={Auth}
+              onEnter={this._redirectIfLoggedIn} />
+
+            <Route
               path="/:user_id"
               // Switch with profile
               component={Profile}>
@@ -49,16 +59,6 @@ class Root extends Component {
                 path="garage"
                 component={Garage} />
             </Route>
-
-            <Route
-              path="/login" 
-              component={Auth}
-              onEnter={this._redirectIfLoggedIn} />
-
-            <Route 
-              path="/signup" 
-              component={Auth}
-              onEnter={this._redirectIfLoggedIn}/>
           </Route>
         </Router>
       </Provider>

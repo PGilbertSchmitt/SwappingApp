@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import isEqual from 'lodash/isEqual';
 
 import Item from './item';
 
@@ -8,17 +9,20 @@ class ItemIndex extends Component {
     this.state = {
       fetchParams: (props.fetchParams || {})
     };
-    props.searchItems(this.state.fetchParams);
     this.formatItems = this.formatItems.bind(this);
   }
 
   componentWillReceiveProps({ fetchParams }) {
+    if (!isEqual(this.state.fetchParams, fetchParams)) {
+      this.props.searchItems(fetchParams);
+    }
     this.setState({ fetchParams });
-    console.log(this.props.items);
+    console.log(fetchParams);
   }
 
   componentDidMount() {
     this.props.searchItems(this.props.fetchParams);
+    console.log("Mounting Item Index");
   }
 
   createRow(items, i) {
@@ -26,6 +30,7 @@ class ItemIndex extends Component {
       <div className="row item-row" key={i}>
         {items.map((item, j) => (
           <div className="three columns item-box" key={(i * 4) + j}>
+            {console.log(item)}
             <Item item={item} />
           </div>
         ))}
@@ -45,6 +50,7 @@ class ItemIndex extends Component {
   }
 
   render() {
+    console.log("Rendering Item Index");
     return (
       <div className="container items-index">
         {this.formatItems()}

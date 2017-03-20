@@ -4,4 +4,5 @@ json.extract! user,
               :fname,
               :lname,
               :address,
-              :phone_number
+              :phone_number,
+              :username
