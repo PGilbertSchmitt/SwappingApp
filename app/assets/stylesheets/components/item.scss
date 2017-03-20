@@ -1,24 +1,41 @@
 .item-container {
-  // width: 200px;
-  // height: 200px;
+  width: 100%;
   background-color: red;
   display: inline-block;
   cursor: pointer;
   transition: box-shadow 0.07s;
 
   .item-photo-container {
-    height: 75%;
     background-color: blue;
     overflow: hidden;
 
     .item-photo {
       object-fit: cover;
+      display: block;
     }
   }
 
   .item-info-container {
-    height: 25%;
+    height: 20%;
     background-color: green;
+
+    .item-info-row {
+      padding: 2px 10px;
+      background-color: $white;
+      vertical-align: middle;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .item-name {
+      color: $black;
+    }
+
+    .item-owner {
+      color: grey;
+    }
   }
 }
 

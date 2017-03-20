@@ -1,13 +1,17 @@
 import React from 'react';
 
-const Item = props => (
+const limitSize = (str) => {
+
+};
+
+const Item = ({ item }) => (
   <div className="item-container">
     <div className="item-photo-container">
       <img src="assets/images/test.png" className="item-photo" />
     </div>
     <div className="item-info-container">
-      <div>Name</div>
-      <div>Owner</div>
+      <div className="item-info-row item-name">{item.name}</div>
+      <div className="item-info-row item-owner">{item.owner}</div>
     </div>
   </div>
 );

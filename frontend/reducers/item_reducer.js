@@ -12,9 +12,7 @@ const itemReducer = (state = [], action) => {
 
   switch (action.type) {
     case RECEIVE_ITEMS:
-      return action.items.map(item => ({
-        [item.id]: item
-      }));
+      return action.items;
     case RECEIVE_ITEM:
       newState[action.item.id] = action.item;
       return newState;
