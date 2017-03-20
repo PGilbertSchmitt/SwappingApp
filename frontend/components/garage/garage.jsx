@@ -65,14 +65,16 @@ class Garage extends Component {
         <div className="garage-container">
           {this.renderErrors()}
         </div>
-      )
+      );
+    } else {
+      return (
+        <div className="garage-container">
+          {this.header()}
+          <ItemIndex fetchParams={this.fetchParams()} />
+        </div>
+      );
     }
-    return (
-      <div className="garage-container">
-        {this.header()}
-        <ItemIndex fetchParams={this.fetchParams()} />
-      </div>
-    );
   }
 }
+
 export default Garage;
