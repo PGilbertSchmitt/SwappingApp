@@ -57,8 +57,8 @@ class User < ApplicationRecord
   def username
     # Convert empty stings into nils for conversion logic
     fname, lname = self.fname, self.lname
-    fname = fname.empty? ? nil : fname
-    lname = lname.empty? ? nil : lname
+    fname = fname && fname.empty? ? nil : fname
+    lname = lname && lname.empty? ? nil : lname
 
     if fname && lname
       "#{fname} #{lname}"
