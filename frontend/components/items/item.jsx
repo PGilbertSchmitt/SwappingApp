@@ -1,9 +1,5 @@
 import React from 'react';
 
-const limitSize = (str) => {
-
-};
-
 const Item = ({ item }) => (
   <div className="item-container">
     <div className="item-photo-container">
