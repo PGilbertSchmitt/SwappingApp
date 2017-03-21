@@ -28,6 +28,7 @@ class Item < ApplicationRecord
       entertainment
       home_and_living
       kids
+      electronics
     )
   end
 

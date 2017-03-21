@@ -93,13 +93,18 @@ class ItemForm extends Component {
           onChange={this.update('description')} />
         <label className="form-label">Category</label>
         <select
+          defaultValue="---"
+          className="u-full-width"
           onChange={this.update('category')}
           type="text">
 
-          <option selected disabled>---</option>
+          <option disabled>---</option>
           <option value="clothing">Clothing</option>
           <option value="jewelry">Jewelry</option>
           <option value="kids">Kids</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="home_and_living">Home and Living</option>
+          <option value="electronics">Electronics</option>
         </select>
         <button
           onClick={this.openWidget}
