@@ -127,7 +127,13 @@ class Garage extends Component {
         <div className="garage-container">
           {this.renderHeader()}
           <ItemIndex fetchParams={this.fetchParams()} />
-          <button onClick={this.openModal}>Open Modal</button>
+          <div className="button-container">
+            <button
+              className="primary_button u-full-width"
+              onClick={this.openModal}>
+              Add Item To Store
+            </button>
+          </div>
           <Modal
             isOpen={this.state.modalOpen}
             style={style}

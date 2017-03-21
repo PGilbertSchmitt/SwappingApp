@@ -9,3 +9,27 @@
 .error-header {
   color: $error;
 }
+
+.button-container {
+  width: 500px;
+  margin: 0 auto;
+  background-color: transparent;
+  text-align: center;
+  margin-bottom: 100px;
+
+  button {
+    font-family: $sans-bold;
+    font-size: 16px;
+    border-color: $warm-grey;
+    background-color: $teal;
+    color: $white;
+    margin-top: 20px;
+    display: block;
+  }
+
+  button:hover {
+    border-color: $warm-grey;
+    background-color: $teal-hover;
+    color: $white;
+  }
+}

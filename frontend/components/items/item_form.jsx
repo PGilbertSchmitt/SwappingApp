@@ -11,6 +11,7 @@ class ItemForm extends Component {
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.openWidget = this.openWidget.bind(this);
   }
 
   update(field) {
@@ -21,8 +22,23 @@ class ItemForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     this.props.action(this.state);
     this.props.closeModal();
+  }
+
+  openWidget(e) {
+    e.preventDefault();
+    window.cloudinary.openUploadWidget(
+      window.cloudinaryOptions,
+      (error, results) => {
+        if (!error) {
+          console.log(results[0]);
+        } else {
+          console.log(`!!! ${error}`);
+        }
+      }
+    );
   }
   
   render() {
@@ -38,6 +54,11 @@ class ItemForm extends Component {
           className="u-full-width form-item"
           onChange={this.update('name')}
           type="text" />
+        <label className="form-label">photo_url</label>
+        <input
+          className="u-full-width form-item"
+          onChange={this.update('photo_url')}
+          type="text" />
         <label className="form-label">Description</label>
         <textarea
           className="u-full-width form-item form-textarea"
@@ -47,17 +68,16 @@ class ItemForm extends Component {
           onChange={this.update('category')}
           type="text">
 
+          <option selected disabled>---</option>
           <option value="clothing">Clothing</option>
           <option value="jewelry">Jewelry</option>
           <option value="kids">Kids</option>
         </select>
-        <label className="form-label">Photo</label>
+        <button
+          onClick={this.openWidget}
+          className="primary-button form-button u-full-width">Add Picture</button>
         <input
-          className="u-full-width form-item"
-          onChange={this.update('photo_url')}
-          type="text" />
-        <input
-          className="form-button primary-button"
+          className="primary-button form-button"
           type="submit"
           value={formType === "new" ? "Create" : "Update"} />
       </form>
