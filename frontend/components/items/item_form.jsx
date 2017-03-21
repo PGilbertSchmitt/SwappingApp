@@ -63,7 +63,7 @@ class ItemForm extends Component {
       window.cloudinaryOptions,
       (error, results) => {
         if (!error) {
-          this.setState({ photo_url: results[0].url });
+          this.setState({ photo_url: results[0].path });
         } else {
           const message = error.message;
           if (message !== "User closed widget") {
