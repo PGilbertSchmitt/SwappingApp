@@ -20,7 +20,7 @@ const style = {
   content: {
     position: 'fixed',
     top: 'none',
-    left: 'none', 
+    left: 'none',
     right: 'none',
     bottom: 'none',
     width: '380px',
@@ -29,7 +29,7 @@ const style = {
     backgroundColor: 'transparent',
     zIndex: 11
   }
-}
+};
 
 class Garage extends Component {
   constructor(props) {
