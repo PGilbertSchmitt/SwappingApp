@@ -4,6 +4,7 @@ export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const RECEIVE_ITEM_ERRORS = "RECEIVE_ITEM_ERRORS";
+export const RECEIVE_ITEM_ERROR = "RECEIVE_ITEM_ERROR";
 export const CLEAN_ITEM_ERRORS = "CLEAN_ITEM_ERRORS";
 
 export const receiveItems = items => ({
@@ -24,6 +25,11 @@ export const removeItem = itemId => ({
 export const receiveItemErrors = errors => ({
   type: RECEIVE_ITEM_ERRORS,
   errors
+});
+
+export const receiveItemError = error => ({
+  type: RECEIVE_ITEM_ERROR,
+  error
 });
 
 export const cleanItemErrors = () => ({

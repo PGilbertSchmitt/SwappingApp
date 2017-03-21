@@ -8,6 +8,7 @@ import {
 
 import {
   RECEIVE_ITEM_ERRORS,
+  RECEIVE_ITEM_ERROR,
   CLEAN_ITEM_ERRORS
 } from '../actions/item_actions';
 
@@ -43,6 +44,12 @@ const errorReducer = (state = defaultState, action) => {
       return newState;
     case RECEIVE_ITEM_ERRORS:
       newState.item = action.errors;
+      return newState;
+    case RECEIVE_ITEM_ERROR:
+      // No repeated errors
+      if (newState.item.indexOf(action.error) === -1) {
+        newState.item.push(action.error);
+      }
       return newState;
     case CLEAN_ITEM_ERRORS:
       newState.item = [];

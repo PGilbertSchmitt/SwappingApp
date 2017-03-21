@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Errors from '../errors';
+
 class ItemForm extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +14,7 @@ class ItemForm extends Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openWidget = this.openWidget.bind(this);
+    this.validForm = this.validForm.bind(this);
   }
 
   update(field) {
@@ -23,8 +26,35 @@ class ItemForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.action(this.state);
-    this.props.closeModal();
+    if (this.validForm()) {
+      this.props.action(this.state);
+      this.props.closeModal();
+    }
+  }
+
+  validForm() {
+    const state = this.state;
+    let valid = true;
+    this.props.cleanErrors();
+
+    if (state.name.length < 1) {
+      this.props.receiveError("Name is required");
+      valid = false;
+    }
+    if (state.description.length < 1) {
+      this.props.receiveError("Description is required");
+      valid = false;
+    }
+    if (state.category.length < 1) {
+      this.props.receiveError("Category is required");
+      valid = false;
+    }
+    if (state.photo_url.length < 1) {
+      this.props.receiveError("Photo is required");
+      valid = false;
+    }
+
+    return valid;
   }
 
   openWidget(e) {
@@ -33,9 +63,12 @@ class ItemForm extends Component {
       window.cloudinaryOptions,
       (error, results) => {
         if (!error) {
-          console.log(results[0]);
+          this.setState({ photo_url: results[0].url });
         } else {
-          console.log(`!!! ${error}`);
+          const message = error.message;
+          if (message !== "User closed widget") {
+            this.props.receiveError(error.message);
+          }
         }
       }
     );
@@ -49,15 +82,11 @@ class ItemForm extends Component {
         <h1 className="form-h1">
           {formType === "new" ? "Add New Item" : "Update Item"}
         </h1>
+        <Errors errors={this.props.errors} />
         <label className="form-label">Name</label>
         <input
           className="u-full-width form-item"
           onChange={this.update('name')}
-          type="text" />
-        <label className="form-label">photo_url</label>
-        <input
-          className="u-full-width form-item"
-          onChange={this.update('photo_url')}
           type="text" />
         <label className="form-label">Description</label>
         <textarea
@@ -75,9 +104,11 @@ class ItemForm extends Component {
         </select>
         <button
           onClick={this.openWidget}
-          className="primary-button form-button u-full-width">Add Picture</button>
+          className="primary-button form-button u-full-width">
+          Add Picture
+        </button>
         <input
-          className="primary-button form-button"
+          className="primary-button form-button u-full-width"
           type="submit"
           value={formType === "new" ? "Create" : "Update"} />
       </form>

@@ -2,15 +2,23 @@ import { connect } from 'react-redux';
 
 import {
   createItem,
-  updateItem
+  updateItem,
+  receiveItemError,
+  cleanItemErrors
 } from '../../actions/item_actions';
 
 import ItemForm from './item_form';
 
+const mapStateToProps = ({ errors: { item } }) => ({
+  errors: item
+});
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   const action = ownProps.formType === "new" ? createItem : updateItem;
   return {
-    action: item => dispatch(action(item))
+    action: item => dispatch(action(item)),
+    receiveError: error => dispatch(receiveItemError(error)),
+    cleanErrors: () => dispatch(cleanItemErrors())
   };
 };
 
