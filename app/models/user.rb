@@ -55,10 +55,15 @@ class User < ApplicationRecord
   end
 
   def username
-    if self.fname && self.lname
-      "#{self.fname} #{self.lname}"
+    # Convert empty stings into nils for conversion logic
+    fname, lname = self.fname, self.lname
+    fname = fname.empty? ? nil : fname
+    lname = lname.empty? ? nil : lname
+
+    if fname && lname
+      "#{fname} #{lname}"
     else
-      self.fname || self.lname || self.email
+      fname || lname || email
     end
   end
 end
