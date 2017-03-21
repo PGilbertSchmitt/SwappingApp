@@ -22,6 +22,12 @@
         max_file_size: 2000000, // 2MB upload limit
         theme: 'minimal'
       };
+
+      const imgUrlPrefix = "https://res.cloudinary.com/swappinup/image/upload"
+
+      window.thumbnail = path => {
+        return `${imgUrlPrefix}/w_200,h_150,c_fill/${path}`
+      }
       
       $(function() {
         if ($.fn.cloudinary_fileupload !== undefined) {

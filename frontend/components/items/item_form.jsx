@@ -25,7 +25,6 @@ class ItemForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     if (this.validForm()) {
       this.props.action(this.state);
       this.props.closeModal();

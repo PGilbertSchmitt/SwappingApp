@@ -42,13 +42,14 @@ class Garage extends Component {
     };
     props.fetchUserData(this.state.user_id);
     props.cleanUserErrors();
-    this.fetchParams    = this.fetchParams.bind(this);
-    this.renderHeader   = this.renderHeader.bind(this);
-    this.renderErrors   = this.renderErrors.bind(this);
-    this.renderForm     = this.renderForm.bind(this);
-    this.isCurrentUser  = this.isCurrentUser.bind(this);
-    this.openModal      = this.openModal.bind(this);
-    this.closeModal     = this.closeModal.bind(this);
+    this.fetchParams      = this.fetchParams.bind(this);
+    this.renderHeader     = this.renderHeader.bind(this);
+    this.renderErrors     = this.renderErrors.bind(this);
+    this.renderForm       = this.renderForm.bind(this);
+    this.renderFormButton = this.renderFormButton.bind(this);
+    this.isCurrentUser    = this.isCurrentUser.bind(this);
+    this.openModal        = this.openModal.bind(this);
+    this.closeModal       = this.closeModal.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -107,6 +108,20 @@ class Garage extends Component {
     }
   }
 
+  renderFormButton() {
+    if (this.isCurrentUser()) {
+      return (
+        <div className="button-container">
+          <button
+            className="primary_button u-full-width"
+            onClick={this.openModal}>
+            Add Item To Store
+            </button>
+        </div>
+      );
+    }
+  }
+
   openModal() {
     this.setState({ modalOpen: true });
   }
@@ -127,13 +142,7 @@ class Garage extends Component {
         <div className="garage-container">
           {this.renderHeader()}
           <ItemIndex fetchParams={this.fetchParams()} />
-          <div className="button-container">
-            <button
-              className="primary_button u-full-width"
-              onClick={this.openModal}>
-              Add Item To Store
-            </button>
-          </div>
+          {this.renderFormButton()}
           <Modal
             isOpen={this.state.modalOpen}
             style={style}
