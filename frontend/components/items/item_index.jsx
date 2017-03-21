@@ -48,7 +48,7 @@ class ItemIndex extends Component {
 
   render() {
     return (
-      <div className="container items-index">
+      <div className={`container items-index ${this.props.search ? "search-items" : ""}`}>
         {this.formatItems()}
       </div>
     );

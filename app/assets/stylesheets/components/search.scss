@@ -1,0 +1,37 @@
+.search-page {
+  margin: 40px;
+
+  .search-header {
+    color: $white;
+    text-align: center;
+    margin: 40px 0;
+    font-size: 60px;
+    font-family: $sans-bold;
+  }
+
+  #search-bar {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 500px;
+  }
+  
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .search-params {
+      width: 200px;
+      height: fit-content;
+      padding: 20px;
+      background-color: $warm-grey;
+      margin-right: 40px;
+    }
+
+    .search-items {
+      margin: 0;
+      width: 960px;
+    }
+  }
+}
