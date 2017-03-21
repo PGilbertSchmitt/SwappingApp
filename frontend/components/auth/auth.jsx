@@ -14,7 +14,7 @@ class Auth extends Component {
         <Login
           cleanErrors={() => this.props.cleanErrors()}
           receiveError={this.props.receiveError}
-          renderErrors={() => this.renderErrors(this.props.errorList)}
+          errors={this.props.errorList}
           login={this.props.action} />
       );
     } else {
@@ -22,21 +22,8 @@ class Auth extends Component {
         <Signup
           cleanErrors={this.props.cleanErrors}
           receiveError={this.props.receiveError}
-          renderErrors={() => this.renderErrors(this.props.errorList)}
+          errors={this.props.errorList}
           signup={this.props.action} />
-      );
-    }
-  }
-
-  renderErrors(errors) {
-    if (errors) {
-      let i = 0;
-      return (
-        <ul className="error-list" >
-          {errors.map(err => (
-            <li key={i++} className="form-error">{err}</li>
-          ))}
-        </ul>
       );
     }
   }

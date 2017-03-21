@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Errors from '../errors';
+
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -67,7 +69,7 @@ class Signup extends Component {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <h1 className="form-h1">Sign Up</h1>
-        { this.props.renderErrors() }
+        <Errors errors={this.props.errors} />
         <label className="form-label">Email</label>
         <input
           className="form-item u-full-width"
