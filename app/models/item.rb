@@ -41,5 +41,15 @@ class Item < ApplicationRecord
     class_name: :User
   )
 
+  has_many(
+    :trades_as_offer,
+    class_name:  :Trade,
+    foreign_key: :offer_item_id
+  )
 
+  has_many(
+    :trades_as_request,
+    class_name:  :Trade,
+    foreign_key: :request_item_id
+  )
 end

@@ -24,6 +24,18 @@ class User < ApplicationRecord
     foreign_key: :owner_id
   )
 
+  has_many(
+    :outgoing_trades,
+    class_name:  :Trade,
+    foreign_key: :requester_id
+  )
+
+  has_many(
+    :incoming_trades,
+    class_name:  :Trade,
+    foreign_key: :receiver_id
+  )
+
   attr_reader :password
 
   def self.generate_token
@@ -54,15 +66,20 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  # Rubocop says this function has a high complexity, but I tried to be as
+  # brief as possible
   def username
-    # Convert empty stings into nils for conversion logic
+    # Convert empty attr strings into nils for conversion logic
     fname, lname = self.fname, self.lname
     fname = fname && fname.empty? ? nil : fname
     lname = lname && lname.empty? ? nil : lname
 
     if fname && lname
+      # if both names are available, combines them
       "#{fname} #{lname}"
     else
+      # Otherwise, uses whichever name is available, or, given they're both
+      # unavailable, uses the user's email
       fname || lname || email
     end
   end
