@@ -7,7 +7,8 @@ import {
 } from '../actions/search_actions';
 
 const defaultState = {
-  category: 'all'
+  category: 'all',
+  search_words: []
 };
 
 const searchReducer = (state = defaultState, action) => {
@@ -17,7 +18,7 @@ const searchReducer = (state = defaultState, action) => {
     case RECEIVE_SEARCH_PARAMS:
       return action.params;
     case RECEIVE_SEARCH_PARAM:
-      return merge({}, action.param);
+      return merge({}, state, action.param);
     case CLEAN_SEARCH_PARAMS:
       return defaultState;
     default:

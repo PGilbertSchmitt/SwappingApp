@@ -19,7 +19,13 @@ module Api::ItemsHelper
       item_params.delete(:category) if item_params[:category].empty?
     end
 
-    p item_params
+    # Matching words that show up in items names and descriptions,
+    # and ordering them based on number of keywords each has
+
+    # No work if unnecessary
+    if params[:]
+
+    p params[:search_words]
 
     Item.where(item_params)
   end

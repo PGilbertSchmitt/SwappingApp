@@ -14,16 +14,21 @@ class Search extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.receiveSearchParams(this.state);
+    // this.props.receiveSearchParams(this.props.searchParams);
+    console.log(this.props.searchParams);
   }
 
   updateCheckbox(e) {
-    this.setState({
+    const newState = {
       category: merge(
-        { },
+        {},
         this.state.category,
         { [e.target.value]: e.target.checked }
       )
+    };
+
+    this.setState(newState, () => {
+      this.props.receiveSearchParam(this.state);
     });
   }
 
