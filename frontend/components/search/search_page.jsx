@@ -6,6 +6,18 @@ import Search from './search_container';
 class SearchPage extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      search: ""
+    };
+    this.handleKeywords = this.handleKeywords.bind(this);
+  }
+
+  handleKeywords(e) {
+    if (e.key === "Enter") {
+      let words = e.target.value.split(' ');
+      this.props.receiveSearchParam({ search_words: null });
+      this.props.receiveSearchParam({ search_words: words });
+    }
   }
 
   render() {
@@ -13,7 +25,11 @@ class SearchPage extends Component {
       <div className="search-page">
         <h1 className="search-header">Find what you're into</h1>
 
-        <input type="text" id="search-bar" placeholder="What's your poison?" />
+        <input
+          onKeyDown={this.handleKeywords}
+          type="text"
+          id="search-bar"
+          placeholder="What's your poison?" />
 
         <div className="search-container">
           <Search />

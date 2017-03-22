@@ -14,8 +14,7 @@ class Search extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.receiveSearchParams(this.props.searchParams);
-    console.log(this.props.searchParams);
+    this.props.receiveSearchParam(this.state);
   }
 
   updateCheckbox(e) {
@@ -27,9 +26,12 @@ class Search extends Component {
       )
     };
 
-    this.setState(newState, () => {
-      this.props.receiveSearchParam(this.state);
-    });
+    this.setState(newState);
+
+    // For dynamic searching
+    // this.setState(newState, () => {
+    //   this.props.receiveSearchParam(this.state);
+    // });
   }
 
   render() {

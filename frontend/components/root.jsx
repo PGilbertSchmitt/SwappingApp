@@ -12,7 +12,7 @@ import Auth from './auth/auth_container';
 import Home from './home/home.jsx';
 import Profile from './profile/profile';
 import Garage from './garage/garage_container';
-import Search from './search/search_page';
+import Search from './search/search_page_container';
 
 class Root extends Component {
   constructor(props) {

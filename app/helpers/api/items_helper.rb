@@ -19,14 +19,33 @@ module Api::ItemsHelper
       item_params.delete(:category) if item_params[:category].empty?
     end
 
+    items = Item.where(item_params)
+
     # Matching words that show up in items names and descriptions,
     # and ordering them based on number of keywords each has
 
     # No work if unnecessary
-    if params[:]
+    if params[:search_words]
+      words = params[:search_words]
 
-    p params[:search_words]
+      items = freq_list(items, words)
+    end
 
-    Item.where(item_params)
+    items
+  end
+
+  def freq_list(items, words)
+    # Could probably be more efficient, but I would require more done on the 
+    # database level
+    score_hash = Hash.new(0)
+    words.each do |word|
+      item_matches = items.where("name ILIKE ?", "%#{word}%")
+      item_matches |= items.where("description ILIKE ?", "%#{word}%")
+      item_matches.each do |item|
+        score_hash[item] += 1
+      end
+    end
+    
+    score_hash.keys.sort { |a, b| score_hash[b] <=> score_hash[a] }
   end
 end
