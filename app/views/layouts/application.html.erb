@@ -28,6 +28,10 @@
       window.thumbnail = path => {
         return `${imgUrlPrefix}/w_200,h_150,c_fill/${path}`
       }
+
+      window.largeImg = path => {
+        return `${imgUrlPrefix}/w_600,h_343,c_fill/${path}`
+      }
       
       $(function() {
         if ($.fn.cloudinary_fileupload !== undefined) {

@@ -5,28 +5,69 @@
 
   .item-page-half:first-of-type {
     margin-right: 20px;
+    width: 660px;
   }
 
   .item-page-half {
-    background-color: green;
     width: 470px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     
-    .item-image-full {
-      width: 470;
-      height: 265;
-      margin-bottom: 20px;
+    .item-image-container {
+      width: 600px;
+      height: 343px;
+      padding: 30px;
+      background-color: $white;
+
+      .item-image-full {
+        height: 100%;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    .item-h1 {
+      color: $wine;
+      font-family: $sans-bold;
+      font-size: 30px;
+      text-align: center;
+      margin: 20px;
     }
 
     .item-user-info {
       background-color: $white;
     }
 
+    .user-info-list {
+      margin: 30px 175px;
+      font-family: $sans-serif;
+      font-size: 20px
+    }
+
     .item-info {
       background-color: $white;
       height: 100%;
+
+      hr {
+        border-color: $wine;
+        margin: 17px 0;
+      }
+    }
+
+    .item-data {
+      margin: 20px 35px;
+      font-family: $sans-serif;
+      font-size: 20px;
+      line-height: 25px;
+      padding: 20px;
+      border: 1px solid $black;
+      border-radius: 10px;
+
+      .description-tag {
+        font-family: $sans-bold;
+        font-size: 22px;
+      }
     }
   }
 }
