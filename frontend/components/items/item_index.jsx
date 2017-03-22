@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import isEqual from 'lodash/isEqual';
+import { Link } from 'react-router';
 
 import Item from './item';
 
@@ -28,7 +29,9 @@ class ItemIndex extends Component {
       <div className="row item-row" key={i}>
         {items.map((item, j) => (
           <div className="three columns item-box" key={(i * 4) + j}>
-            <Item item={item} />
+            <Link to={`/items/${item.id}`}>
+              <Item item={item} />
+            </Link>
           </div>
         ))}
       </div>
