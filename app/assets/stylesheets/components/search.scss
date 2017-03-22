@@ -22,14 +22,26 @@
     justify-content: center;
 
     .search-params {
+      color: $wine;
       width: 200px;
       height: fit-content;
-      padding: 20px;
-      background-color: $warm-grey;
+      padding: 30px;
+      border-radius: 40px;
+      background-color: $white;
       margin-right: 40px;
 
       input[type="checkbox"] {
         margin-right: 5px;
+      }
+
+      .form-button {
+        font-family: $sans-bold;
+        font-size: 12px;
+        border-color: $warm-grey;
+        background-color: $teal;
+        color: $white;
+        margin-top: 20px;
+        display: block;
       }
     }
 
