@@ -42,6 +42,7 @@ class Garage extends Component {
     };
     props.fetchUserData(this.state.user_id);
     props.cleanUserErrors();
+    props.cleanSearchParams();
     this.fetchParams      = this.fetchParams.bind(this);
     this.renderHeader     = this.renderHeader.bind(this);
     this.renderErrors     = this.renderErrors.bind(this);
@@ -52,10 +53,19 @@ class Garage extends Component {
     this.closeModal       = this.closeModal.bind(this);
   }
 
+  componentDidMount() {
+    this.props.receiveSearchParam({
+      user_id: this.props.params.user_id
+    });
+  }
+
   componentWillReceiveProps(props) {
     if (props.params.user_id !== this.state.user_id) {
       this.props.fetchUserData(props.params.user_id);
       this.props.cleanUserErrors();
+      this.props.receiveSearchParam({
+        user_id: props.params.user_id
+      });
     }
 
     this.setState({
@@ -141,7 +151,7 @@ class Garage extends Component {
       return (
         <div className="garage-container">
           {this.renderHeader()}
-          <ItemIndex fetchParams={this.fetchParams()} />
+          <ItemIndex />
           {this.renderFormButton()}
           <Modal
             isOpen={this.state.modalOpen}

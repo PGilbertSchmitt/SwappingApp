@@ -8,7 +8,7 @@ module Api::ItemsHelper
     # For each item, only incude in item_params if it exists,
     # otherwise the database specificaly looks for NULL values
 
-    item_params[:owner_id] = params[:user_id] if params[:user_id]
+    item_params[:owner_id] = params[:user_id] unless params[:user_id].empty?
 
     category = params[:category]
     if category && category != "all"
