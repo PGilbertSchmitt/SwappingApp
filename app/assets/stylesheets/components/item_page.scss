@@ -16,12 +16,11 @@
     
     .item-image-container {
       width: 600px;
-      height: 343px;
+      object-fit: fill;
       padding: 30px;
       background-color: $white;
 
       .item-image-full {
-        height: 100%;
         width: 100%;
         margin-bottom: 20px;
       }
