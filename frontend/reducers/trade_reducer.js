@@ -1,5 +1,7 @@
 import {
   RECEIVE_TRADES,
+  RECEIVE_TRADE,
+  REMOVE_TRADE,
   CLEAN_TRADES
 } from '../actions/trade_actions';
 
