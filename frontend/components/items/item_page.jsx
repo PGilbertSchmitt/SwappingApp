@@ -56,7 +56,7 @@ class ItemPage extends Component {
     
     return (
       <div className="item-page">
-        <div className="item-page-half">
+        <div className="item-page-half left-half">
           <div className="item-image-container">
             <img
               className="item-image-full"
@@ -72,7 +72,7 @@ class ItemPage extends Component {
           </div>
         </div>
 
-        <div className="item-page-half">
+        <div className="item-page-half right-half">
           <div className="item-info">
             <h1 className="item-h1">
               {item.name}

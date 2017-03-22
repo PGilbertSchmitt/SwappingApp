@@ -3,6 +3,16 @@
   margin: 50px;
   justify-content: center;
 
+  .left-half {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+
+  .right-half {
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
   .item-page-half:first-of-type {
     margin-right: 20px;
     width: 660px;
@@ -13,12 +23,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: $white;
     
     .item-image-container {
       width: 600px;
       object-fit: fill;
       padding: 30px;
-      background-color: $white;
 
       .item-image-full {
         width: 100%;
@@ -34,10 +44,6 @@
       margin: 20px;
     }
 
-    .item-user-info {
-      background-color: $white;
-    }
-
     .user-info-list {
       margin: 30px 175px;
       font-family: $sans-serif;
@@ -45,7 +51,6 @@
     }
 
     .item-info {
-      background-color: $white;
       height: 100%;
 
       hr {
