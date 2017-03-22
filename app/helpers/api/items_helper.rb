@@ -11,8 +11,11 @@ module Api::ItemsHelper
     item_params[:owner_id] = params[:user_id] if params[:user_id]
 
     category = params[:category]
-    if category != "all"
-      item_params[:category] = Item.categories.include?(category) ? category : nil
+    if category && category != "all"
+      item_params[:category] = []
+      Item.categories.each do |cat|
+        item_params[:category].push(cat) if category[cat]
+      end
     end
 
     p item_params

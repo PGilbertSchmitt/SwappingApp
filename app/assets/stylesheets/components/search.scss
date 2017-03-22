@@ -27,6 +27,10 @@
       padding: 20px;
       background-color: $warm-grey;
       margin-right: 40px;
+
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
     }
 
     .search-items {
