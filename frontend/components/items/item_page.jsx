@@ -45,6 +45,15 @@ class ItemPage extends Component {
 
   render() {
     const item = this.state.currentItem;
+
+    if (!item.photo_url) {
+      return (
+        <div>
+          No such item
+        </div>
+      );
+    }
+    
     return (
       <div className="item-page">
         <div className="item-page-half">
