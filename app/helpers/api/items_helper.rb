@@ -14,8 +14,9 @@ module Api::ItemsHelper
     if category && category != "all"
       item_params[:category] = []
       Item.categories.each do |cat|
-        item_params[:category].push(cat) if category[cat]
+        item_params[:category].push(cat) if category[cat] == "true"
       end
+      item_params.delete(:category) if item_params[:category].empty?
     end
 
     p item_params

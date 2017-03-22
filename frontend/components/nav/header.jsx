@@ -21,6 +21,9 @@ class Header extends Component {
       const user = this.props.currentUser;
       return (
         <ul className="nav-list">
+          <Link to="/search">
+            <li className="nav-item">Search</li>
+          </Link>
           <Link to={`/${user.id}/garage`}>
             <li className="nav-item">Garage</li>
           </Link>
@@ -43,6 +46,9 @@ class Header extends Component {
     } else {
       return (
         <ul className="nav-list">
+          <Link to="/search">
+            <li className="nav-item">Search</li>
+          </Link>
           <li className="nav-item" onClick={this.demo}>Demo</li>
           <Link to="/login"><li className="nav-item">Login</li></Link>
           <Link to="/signup"><li className="nav-item">Sign Up</li></Link>
