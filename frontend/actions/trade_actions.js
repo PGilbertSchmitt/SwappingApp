@@ -14,7 +14,7 @@ export const cleanTrades = () => ({
 
 // THUNKERS
 
-export const fetchTrades = (tradeParams) => dispatch => (
-  TradeApi.fetchTrades(tradeParams)
+export const fetchTrades = () => dispatch => (
+  TradeApi.fetchTrades()
     .done(trades => dispatch(receiveTrades(trades)))
 );

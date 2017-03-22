@@ -1,6 +1,7 @@
 class Api::TradesController < ApplicationController
   def index
-    @trades = Trade.all
+    @incoming_trades = current_user.incoming_trades
+    @outgoing_trades = current_user.outgoing_trades
   end
 
   def create
