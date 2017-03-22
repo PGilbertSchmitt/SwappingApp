@@ -6,6 +6,7 @@ import currentItemReducer from './current_item_reducer';
 import errorReducer from './error_reducer';
 import userReducer from './user_reducer';
 import searchReducer from './search_reducer';
+import tradeReducer from './trade_reducer';
 
 export default combineReducers({
   session: authReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
   currentItem: currentItemReducer,
   errors: errorReducer,
   user: userReducer,
-  searchParams: searchReducer
+  searchParams: searchReducer,
+  trades: tradeReducer
 });
