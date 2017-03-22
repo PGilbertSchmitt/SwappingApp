@@ -9,7 +9,7 @@ const Item = ({ item }) => (
     </div>
     <div className="item-info-container">
       <div className="item-info-row item-name">{item.name}</div>
-      <div className="item-info-row item-owner">{item.owner}</div>
+      <div className="item-info-row item-owner">{item.owner.username}</div>
     </div>
   </div>
 );

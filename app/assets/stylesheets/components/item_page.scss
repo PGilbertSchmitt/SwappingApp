@@ -1,0 +1,32 @@
+.item-page {
+  display: flex;
+  margin: 50px;
+  justify-content: center;
+
+  .item-page-half:first-of-type {
+    margin-right: 20px;
+  }
+
+  .item-page-half {
+    background-color: green;
+    width: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    .item-image-full {
+      width: 470;
+      height: 265;
+      margin-bottom: 20px;
+    }
+
+    .item-user-info {
+      background-color: $white;
+    }
+
+    .item-info {
+      background-color: $white;
+      height: 100%;
+    }
+  }
+}

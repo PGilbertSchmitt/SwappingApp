@@ -13,6 +13,7 @@ import Home from './home/home.jsx';
 import Profile from './profile/profile';
 import Garage from './garage/garage_container';
 import Search from './search/search_page_container';
+import ItemPage from './items/item_page_container';
 
 class Root extends Component {
   constructor(props) {
@@ -54,6 +55,10 @@ class Root extends Component {
             <Route
               path="/search"
               component={Search} />
+            
+            <Route
+              path="/items/:itemId"
+              component={ItemPage} />
 
             <Route
               path="/:user_id"

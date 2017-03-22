@@ -5,4 +5,11 @@ json.extract! item,
               :photo_url,
               :category
 
-json.owner item.owner.username
+json.owner item.owner, 
+           :address, 
+           :email, 
+           :fname, 
+           :lname,
+           :username,
+           :phone_number,
+           :id
