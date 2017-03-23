@@ -39,10 +39,10 @@ export const createTrade = tradeIn => dispatch => (
 
 export const updateTrade = tradeIn => dispatch => (
   TradeApi.createTrade(tradeIn)
-    .done(trade => dispatch(updateTrade(trade)))
+    .done(trade => dispatch(receiveTrade(trade)))
 );
 
-export const destoyTrade = tradeId => dispatch => (
+export const destroyTrade = tradeId => dispatch => (
   TradeApi.destroyTrade(tradeId)
-    .done(trade => dispatch(destoyTrade(trade)))
+    .done(trade => dispatch(removeTrade(trade)))
 );
