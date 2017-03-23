@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: trades
+#
+#  id              :integer          not null, primary key
+#  requester_id    :integer          not null
+#  receiver_id     :integer          not null
+#  request_item_id :integer          not null
+#  offer_item_id   :integer          not null
+#  status          :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Trade < ApplicationRecord
   after_initialize :initiate_pending
   validates :requester, :receiver, :request_item, :offer_item, presence: true
