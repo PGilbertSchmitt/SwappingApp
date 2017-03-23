@@ -42,7 +42,6 @@ class Garage extends Component {
     };
     props.fetchUserData(this.state.user_id);
     props.cleanUserErrors();
-    props.cleanSearchParams();
     this.fetchParams      = this.fetchParams.bind(this);
     this.renderHeader     = this.renderHeader.bind(this);
     this.renderErrors     = this.renderErrors.bind(this);

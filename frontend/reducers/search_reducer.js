@@ -20,7 +20,6 @@ const searchReducer = (state = defaultState, action) => {
       return action.params;
     case RECEIVE_SEARCH_PARAM:
       const newState = merge({}, state, action.param);
-      console.log(newState);
       return newState;
     case CLEAN_SEARCH_PARAMS:
       return defaultState;
