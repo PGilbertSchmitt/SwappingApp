@@ -6,8 +6,9 @@ import {
   destroyItem
 } from '../../actions/item_actions';
 
-const mapStateToProps = ({ currentItem }) => ({
-  currentItem
+const mapStateToProps = ({ currentItem, session: { currentUser } }) => ({
+  currentItem,
+  currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -10,6 +10,7 @@ class ItemPage extends Component {
       },
       itemId: null
     };
+    this.renderTradeButton = this.renderTradeButton.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,17 @@ class ItemPage extends Component {
           {email}
           {phoneNumber}
         </ul>
+      );
+    }
+  }
+
+  renderTradeButton() {
+    const item = this.state.currentItem;
+    if (item.owner.id === this.props.currentUser.id) {
+      return (
+        <button className="primary-button">
+          Trade for {item.name}
+        </button>
       );
     }
   }
@@ -77,20 +89,24 @@ class ItemPage extends Component {
             <h1 className="item-h1">
               {item.name}
             </h1>
+
             <p className="item-data">
               Category: {item.category}
             </p>
+
             <div className="item-data">
               <p className="description-tag">
                 Description:<br />
               </p>
 
               <hr />
-                  
+
               <p>
                 {item.description}
               </p>
             </div>
+
+            {this.renderTradeButton()}
           </div>
         </div>
       </div>
