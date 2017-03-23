@@ -14,6 +14,7 @@ import Profile from './profile/profile';
 import Garage from './garage/garage_container';
 import Search from './search/search_page_container';
 import ItemPage from './items/item_page_container';
+import TradeIndex from './trade/trade_index_container';
 
 class Root extends Component {
   constructor(props) {
@@ -51,11 +52,15 @@ class Root extends Component {
               path="/signup"
               component={Auth}
               onEnter={this._redirectIfLoggedIn} />
-            
+
             <Route
               path="/search"
               component={Search} />
-            
+
+            <Route
+              path="/trades"
+              component={TradeIndex} />
+
             <Route
               path="/items/:itemId"
               component={ItemPage} />
@@ -69,6 +74,7 @@ class Root extends Component {
                 path="garage"
                 component={Garage} />
             </Route>
+
           </Route>
         </Router>
       </Provider>
