@@ -1,3 +1,5 @@
+json.id trade, :id
+
 json.requester do
   json.id trade.requester_id
   json.name trade.requester.username
