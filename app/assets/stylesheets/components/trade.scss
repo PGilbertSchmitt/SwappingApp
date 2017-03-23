@@ -33,10 +33,47 @@
           padding: 15px;
           margin-bottom: 10px;
           border: 1px solid $black;
+          border-radius: 5px;
           background-color: $warm-grey;
           font-size: 20px;
           display: flex;
-          justify-content: 
+          justify-content: space-between;
+          align-items: center;
+
+          .trade-info {
+            color: $wine;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .trade-button {
+            display: inline-block;
+            font-family: $sans-bold;
+            font-size: 14px;
+            border-color: $warm-grey;
+            color: $white;
+            display: block;
+            margin-bottom: 0;
+            margin-left: 5px;
+            padding: 0 15px;
+          }
+
+          .nice {
+            background-color: $teal;
+          }
+
+          .nice:hover {
+            background-color: $teal-hover;
+          }
+
+          .mean {
+            background-color: $danger;
+          }
+
+          .mean:hover {
+            background-color: $danger-hover;
+          }
         }
 
         .trade-item:last-child {
