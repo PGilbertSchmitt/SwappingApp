@@ -12,6 +12,6 @@ json.receiver do
   json.name trade.receiver.username
   json.item do
     json.id trade.request_item_id
-    json.name trade.offer_item.name
+    json.name trade.request_item.name
   end
 end
