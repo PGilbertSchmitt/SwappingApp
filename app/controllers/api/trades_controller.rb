@@ -1,7 +1,7 @@
 class Api::TradesController < ApplicationController
   def index
-    @incoming_trades = current_user.incoming_trades
-    @outgoing_trades = current_user.outgoing_trades
+    @outgoing_trades = current_user.outgoing_trades.order("created_at DESC")
+    @incoming_trades = current_user.incoming_trades.order("created_at DESC")
   end
 
   def create
@@ -28,7 +28,7 @@ class Api::TradesController < ApplicationController
     @trade = Trade.find_by(id: params[:id]).includes(:requester, :receiver)
 
     if @trade
-      if current_user.id == trade.requester.id || 
+      if current_user.id == trade.requester.id ||
          current_user.id == trade.receiver.id
 
         @trade.destroy
