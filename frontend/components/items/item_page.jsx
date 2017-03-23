@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import isEqual from 'lodash/isEqual';
 
+import TradeForm from '../trade/trade_form_container';
+
 class ItemPage extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ class ItemPage extends Component {
       },
       itemId: null
     };
-    this.renderTradeButton = this.renderTradeButton.bind(this);
+    this.renderTradeForm = this.renderTradeForm.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,7 @@ class ItemPage extends Component {
       this.props.getItem(newProps.params.itemId);
     }
 
+    console.log(newProps.currentItem);
     this.setState({
       currentItem: newProps.currentItem,
       itemId: newProps.params.itemId
@@ -44,14 +47,15 @@ class ItemPage extends Component {
     }
   }
 
-  renderTradeButton() {
+  renderTradeForm() {
     const item = this.state.currentItem;
     const currentUser = this.props.currentUser;
     if (Boolean(currentUser) && item.owner.id !== currentUser.id) {
       return (
-        <button className="primary-button">
-          Trade for {item.name}
-        </button>
+        <TradeForm
+          currentUser={this.props.currentUser}
+          receiverId={this.state.currentItem.owner.id}
+          requestItemId={this.state.itemId} />
       );
     }
   }
@@ -107,7 +111,7 @@ class ItemPage extends Component {
               </p>
             </div>
 
-            {this.renderTradeButton()}
+            {this.renderTradeForm()}
           </div>
         </div>
       </div>
