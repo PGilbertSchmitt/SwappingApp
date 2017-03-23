@@ -9,7 +9,7 @@ import {
 
 import App from './app';
 import Auth from './auth/auth_container';
-import Home from './home/home.jsx';
+import Home from './home/home_container';
 import Profile from './profile/profile';
 import Garage from './garage/garage_container';
 import Search from './search/search_page_container';

@@ -40,6 +40,9 @@ class Garage extends Component {
         username: ""
       }
     };
+    this.props.receiveSearchParam({
+      user_id: this.props.params.user_id
+    });
     props.fetchUserData(this.state.user_id);
     props.cleanUserErrors();
     this.fetchParams      = this.fetchParams.bind(this);
@@ -51,13 +54,7 @@ class Garage extends Component {
     this.openModal        = this.openModal.bind(this);
     this.closeModal       = this.closeModal.bind(this);
   }
-
-  componentDidMount() {
-    this.props.receiveSearchParam({
-      user_id: this.props.params.user_id
-    });
-  }
-
+  
   componentWillReceiveProps(props) {
     if (props.params.user_id !== this.state.user_id) {
       this.props.fetchUserData(props.params.user_id);
