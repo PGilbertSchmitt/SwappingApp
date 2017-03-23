@@ -59,7 +59,8 @@ class Root extends Component {
 
             <Route
               path="/trades"
-              component={TradeIndex} />
+              component={TradeIndex}
+              onEnter={this._redirectUnlessLoggedIn} />
 
             <Route
               path="/items/:itemId"

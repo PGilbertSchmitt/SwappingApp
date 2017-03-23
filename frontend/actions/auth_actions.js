@@ -47,7 +47,10 @@ export const login = user => dispatch => (
 
 export const logout = () => dispatch => (
   AuthApi.logout()
-    .done(userBack => dispatch(receiveCurrentUser(userBack)))
+    .done(userBack => {
+      dispatch(receiveCurrentUser(userBack));
+      hashHistory.push('/');
+    })
     .fail(errors => dispatch(receiveAuthErrors(errors)))
 );
 
