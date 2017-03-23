@@ -38,7 +38,7 @@ class TradeForm extends Component {
         offer_item_id: this.state.offerItemId
       };
       this.props.createTrade(trade);
-    }
+    } // TODO: Add error handling for bad trades
   }
 
   render() {
