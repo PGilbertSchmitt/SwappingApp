@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import TradeIndexItem from './trade_index_item';
+import IncomingTradeItem from './incoming_trade_item';
+import OutgoingTradeItem from './outgoing_trade_item';
 
 class TradeIndex extends Component {
   constructor(props) {
@@ -17,12 +18,20 @@ class TradeIndex extends Component {
     });
   }
 
-  renderTrades(trades) {
+  renderItem(type, key, trade) {
+    if (type === "incomming") {
+      return (<IncomingTradeItem key={key} trade={trade} />);
+    } else {
+      return (<OutgoingTradeItem key={key} trade={trade} />);
+    }
+  }
+
+  renderTrades(trades, type) {
     if (trades && trades.length > 0) {
       return (
         <div className="trade-item-container">
           {trades.map((trade, i) => (
-            <TradeIndexItem key={i} trade={trade} />
+            this.renderItem(type, i, trade)
           ))}
         </div>
       );
@@ -44,14 +53,20 @@ class TradeIndex extends Component {
         <div className="trades-box">
           <h2 className="box-header">Incoming Trades</h2>
           <div className="inner-box">
-            {this.renderTrades(this.state.trades.incoming_trades)}
+            {this.renderTrades(
+              this.state.trades.incoming_trades,
+              "incomming"
+            )}
           </div>
         </div>
 
         <div className="trades-box">
           <h2 className="box-header">Outgoing Trades</h2>
           <div className="inner-box">
-            {this.renderTrades(this.state.trades.outgoing_trades)}
+            {this.renderTrades(
+              this.state.trades.outgoing_trades,
+              "outgoing"
+            )}
           </div>
         </div>
       </div>
