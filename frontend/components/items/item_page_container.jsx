@@ -12,8 +12,8 @@ const mapStateToProps = ({ currentItem, session: { currentUser } }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getItem: itemId => dispatch(getItem(itemId)),
-    destroyItem: itemId => dispatch(destroyItem(itemId))
+  getItem: itemId => dispatch(getItem(itemId)),
+  destroyItem: itemId => dispatch(destroyItem(itemId))
 });
 
 export default connect(
