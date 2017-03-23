@@ -46,7 +46,8 @@ class ItemPage extends Component {
 
   renderTradeButton() {
     const item = this.state.currentItem;
-    if (item.owner.id === this.props.currentUser.id) {
+    const currentUser = this.props.currentUser;
+    if (Boolean(currentUser) && item.owner.id === currentUser.id) {
       return (
         <button className="primary-button">
           Trade for {item.name}
