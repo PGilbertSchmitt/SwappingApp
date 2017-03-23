@@ -1,6 +1,7 @@
 import * as ItemApi from '../util/item_util_api';
 
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
+export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const RECEIVE_ITEM_ERRORS = "RECEIVE_ITEM_ERRORS";
@@ -9,6 +10,11 @@ export const CLEAN_ITEM_ERRORS = "CLEAN_ITEM_ERRORS";
 
 export const receiveItems = items => ({
   type: RECEIVE_ITEMS,
+  items
+});
+
+export const receiveListings = items => ({
+  type: RECEIVE_LISTINGS,
   items
 });
 
@@ -41,6 +47,11 @@ export const cleanItemErrors = () => ({
 export const searchItems = searchParams => dispatch => (
   ItemApi.searchItems(searchParams)
     .done(items => dispatch(receiveItems(items)))
+);
+
+export const getItemListings = searchParams => dispatch => (
+  ItemApi.searchItems(searchParams)
+    .done(items => dispatch(receiveListings(items)));
 );
 
 export const getItem = itemId => dispatch => (
