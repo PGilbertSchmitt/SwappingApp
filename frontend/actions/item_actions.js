@@ -49,9 +49,9 @@ export const searchItems = searchParams => dispatch => (
     .done(items => dispatch(receiveItems(items)))
 );
 
-export const getItemListings = searchParams => dispatch => (
-  ItemApi.searchItems(searchParams)
-    .done(items => dispatch(receiveListings(items)));
+export const getItemListings = id => dispatch => (
+  ItemApi.searchItems({ user_id: id, category: "all" })
+    .done(items => dispatch(receiveListings(items)))
 );
 
 export const getItem = itemId => dispatch => (
