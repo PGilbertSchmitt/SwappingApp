@@ -1,3 +1,8 @@
 json.array! @items do |item|
-  json.partial! 'api/items/item', item: item
+  json.extract! item, 
+                :id,
+                :name,
+                :photo_url
+  
+  json.owner_name item.owner.username
 end
