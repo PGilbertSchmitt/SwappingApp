@@ -33,7 +33,8 @@ export const fetchTrades = () => dispatch => (
 
 export const createTrade = tradeIn => dispatch => (
   TradeApi.createTrade(tradeIn)
-    .done(trade => dispatch(createTrade(trade)))
+    .done(trade => dispatch(receiveTrade(trade)))
+    .fail(errors => console.log(errors))
 );
 
 export const updateTrade = tradeIn => dispatch => (
