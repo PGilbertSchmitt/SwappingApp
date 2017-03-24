@@ -29,6 +29,10 @@ class Api::TradesController < ApplicationController
     end
 
     if @trade.update_attributes(status: "COMPLETE")
+      # The magic
+      swap = helpers.swap_owners(@trade)
+      p swap ? "Swap successful" : "Swap failed"
+      
       render :show
     else
       render json: @trade.errors.full_messages, status: 422
