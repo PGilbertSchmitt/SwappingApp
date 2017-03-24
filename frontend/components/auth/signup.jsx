@@ -31,7 +31,9 @@ class Signup extends Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.validForm()) {
-      this.props.signup(this.state);
+      let filteredState = this.state;
+      delete filteredState.confirmPassword;
+      this.props.signup(filteredState);
     } else {
       this.clearPasswords();
     }

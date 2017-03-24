@@ -18,6 +18,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   validates :email, :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  before_save :downcase_email
 
   has_many(
     :items,
@@ -43,8 +44,12 @@ class User < ApplicationRecord
   end
 
   def self.find_by_credentials(email, password)
-    user = User.find_by(email: email)
+    user = User.find_by(email: email.downcase)
     user && user.is_password?(password) ? user : nil
+  end
+
+  def downcase_email
+    self.email.downcase!
   end
 
   def password=(password)
