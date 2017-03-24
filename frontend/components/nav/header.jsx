@@ -46,7 +46,7 @@ class Header extends Component {
           <Link to="/search">
             <li className="nav-item">Search</li>
           </Link>
-          <li className="nav-item" onClick={this.demo}>Demo</li>
+          <li className="nav-item" onClick={this.demo}>Demo Account</li>
           <Link to="/login"><li className="nav-item">Login</li></Link>
           <Link to="/signup"><li className="nav-item">Sign Up</li></Link>
         </ul>
