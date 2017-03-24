@@ -10,4 +10,24 @@ module Api::TradesHelper
     
     true
   end
+
+  def remove_conflicts(trade)
+    p Trade.where("id <> ? AND (request_item_id = ? OR offer_item_id = ?)", 
+                  trade.id, 
+                  trade.request_item_id,
+                  trade.offer_item_id).destroy_all
+  end
+
+  def organize_trades
+    [
+      current_user
+        .outgoing_trades
+        .where(status: "PENDING")
+        .order("created_at DESC"),
+      current_user
+        .incoming_trades
+        .where(status: "PENDING")
+        .order("created_at DESC")
+      ]
+  end
 end

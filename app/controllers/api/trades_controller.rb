@@ -1,13 +1,6 @@
 class Api::TradesController < ApplicationController
   def index
-    @outgoing_trades = current_user
-      .outgoing_trades
-      .where(status: "PENDING")
-      .order("created_at DESC")
-    @incoming_trades = current_user
-      .incoming_trades
-      .where(status: "PENDING")
-      .order("created_at DESC")
+    @outgoing_trades, @incoming_trades = helpers.organize_trades
   end
 
   def create
@@ -32,8 +25,12 @@ class Api::TradesController < ApplicationController
       # The magic
       swap = helpers.swap_owners(@trade)
       p swap ? "Swap successful" : "Swap failed"
-      
-      render :show
+
+      # Also magic
+      helpers.remove_conflicts(@trade)
+
+      @outgoing_trades, @incoming_trades = helpers.organize_trades
+      render :index
     else
       render json: @trade.errors.full_messages, status: 422
     end
