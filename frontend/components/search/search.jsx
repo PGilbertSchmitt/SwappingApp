@@ -26,12 +26,12 @@ class Search extends Component {
       )
     };
 
-    this.setState(newState);
+    // this.setState(newState);
 
     // For dynamic searching
-    // this.setState(newState, () => {
-    //   this.props.receiveSearchParam(this.state);
-    // });
+    this.setState(newState, () => {
+      this.props.receiveSearchParam(this.state);
+    });
   }
 
   render() {
@@ -86,7 +86,7 @@ class Search extends Component {
               value="electronics" />
             Electronics
           </label>
-          <input type="submit" className="primary-button form-button u-full-width" />
+          {/*<input type="submit" className="primary-button form-button u-full-width" />*/}
         </form>
       </div>
     );
