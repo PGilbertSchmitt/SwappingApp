@@ -17,10 +17,16 @@ import {
   CLEAN_USER_ERRORS
 } from '../actions/user_actions';
 
+import {
+  RECEIVE_TRADE_ERRORS,
+  CLEAN_TRADE_ERRORS
+} from '../actions/trade_actions';
+
 const defaultState = {
   auth: [],
   item: [],
-  user: []
+  user: [],
+  trade: []
 };
 
 // Should maybe break up into multiple error reducers;
@@ -42,6 +48,7 @@ const errorReducer = (state = defaultState, action) => {
     case CLEAN_AUTH_ERRORS:
       newState.auth = [];
       return newState;
+
     case RECEIVE_ITEM_ERRORS:
       newState.item = action.errors;
       return newState;
@@ -54,12 +61,21 @@ const errorReducer = (state = defaultState, action) => {
     case CLEAN_ITEM_ERRORS:
       newState.item = [];
       return newState;
+
     case RECEIVE_USER_ERRORS:
       newState.user = action.errors;
       return newState;
     case CLEAN_USER_ERRORS:
       newState.user = [];
       return newState;
+
+    case RECEIVE_TRADE_ERRORS:
+      newState.trade = action.errors;
+      return newState;
+    case CLEAN_TRADE_ERRORS:
+      newState.trade = [];
+      return newState;
+
     default:
       return state;
   }

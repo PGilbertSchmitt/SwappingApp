@@ -13,6 +13,7 @@ class TradeForm extends Component {
     props.getListings(props.currentUser.id);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -41,6 +42,14 @@ class TradeForm extends Component {
     } // TODO: Add error handling for bad trades
   }
 
+  renderErrors() {
+    if (this.props.tradeErrors.length > 0) {
+      return this.props.tradeErrors.map((error, i) => (
+        <h1 key={i} className="trade-error">{error}</h1>
+      ));
+    }
+  }
+
   render() {
     const listings = this.state.listings;
     if (listings) {
@@ -57,6 +66,8 @@ class TradeForm extends Component {
               ))}
             </select>
 
+            {this.renderErrors()}
+
             <button className="primary-button" onClick={this.handleSubmit}>
               Trade
             </button>
@@ -64,7 +75,7 @@ class TradeForm extends Component {
         );
       } else {
         return (
-          <h1>Add items to your store to enable trading</h1>
+          <h1 className="trade-error">Add items to your store to enable trading</h1>
         );
       }
     } else {

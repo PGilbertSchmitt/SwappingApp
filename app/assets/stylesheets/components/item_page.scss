@@ -61,6 +61,13 @@
     .item-info {
       height: 100%;
 
+      .trade-error {
+        margin: 20px 30px;
+        color: darkred;
+        font-family: $sans-bold;
+        text-align: center;
+      }
+
       hr {
         border-color: $wine;
         margin: 17px 0;

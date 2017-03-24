@@ -4,8 +4,9 @@ import TradeForm from './trade_form';
 import { getItemListings } from '../../actions/item_actions';
 import { createTrade } from '../../actions/trade_actions';
 
-const mapStateToProps = ({ listings }) => ({
-  listings
+const mapStateToProps = ({ listings, errors: { trade } }) => ({
+  listings,
+  tradeErrors: trade
 });
 
 const mapDispatchToProps = dispatch => ({
