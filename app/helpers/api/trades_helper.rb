@@ -12,10 +12,12 @@ module Api::TradesHelper
   end
 
   def remove_conflicts(trade)
-    p Trade.where("id <> ? AND (request_item_id = ? OR offer_item_id = ?)", 
-                  trade.id, 
-                  trade.request_item_id,
-                  trade.offer_item_id).destroy_all
+    Trade.where(
+      "id <> ? AND (request_item_id = ? OR offer_item_id = ?)", 
+      trade.id, 
+      trade.request_item_id,
+      trade.offer_item_id
+    ).destroy_all
   end
 
   def organize_trades
