@@ -14,6 +14,8 @@ The idea of SwappinUp is not far from that of a garage sale, except money does n
 
 ### Live searching
 
+![Search Page](docs/screenshots/searchpage.png)
+
 The main design challenge of this site was, and still is, the ability to search for items that are relevant to you. While there is still some work to be done regarding searching for relevant items, the search is still dynamic and flexible, and it's all thanks to the heavy lifter of this react app: the `Item Index`.
 
 The `Item Index` is responsible for rendering items on any page it's called, but rather than giving it an array of items to display, it's only given an object with search parameters. Any change in these parameters causes it to perform a new search, and thus is incredibly flexible in that any component that includes it only needs to modify search parameters and pass them in (or add them to the state). For example, the garage simply tells it that it needs all items from any category with an owner id equal to that of the id in the url. The moment the id changes in the url, the `Item Index` knows to perform a new search. In the search, it sets the parameters equal to whichever categories are selected, and whichever keywords are written in the search bar.
@@ -63,6 +65,8 @@ end
 This function also removes any items not containing the search words.
 
 ### Trade conflict resolution
+
+![Search Page](docs/screenshots/trades.png)
 
 Trades are stored in the database with an `id` for the sender and receiver (the person who initiated the trade and the other user respectively), as well as an `id` for their respective items. The trade has two states:
 
