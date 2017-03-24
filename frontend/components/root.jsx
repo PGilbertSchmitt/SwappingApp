@@ -67,13 +67,9 @@ class Root extends Component {
               component={ItemPage} />
 
             <Route
-              path="/:user_id"
+              path="/:user_id/garage"
               // Switch with profile
-              component={Profile}>
-
-              <Route
-                path="garage"
-                component={Garage} />
+              component={Garage}>
             </Route>
 
           </Route>

@@ -24,17 +24,15 @@ class Header extends Component {
           <Link to="/search">
             <li className="nav-item">Search</li>
           </Link>
-          <Link to={`/${user.id}/garage`}>
-            <li className="nav-item">Garage</li>
-          </Link>
-          <Link to="/trades">
-            <li className="nav-item">Trades</li>
-          </Link>
           <li className="nav-item">
-            <i className="fa fa-user" alt="User Profile"></i>
+            {/*<i className="fa fa-user" alt="User Profile"></i>*/}
+            Account
             <ul className="dropdown-menu">
-              <Link to="/account">
-                <li className="dropdown-item">Profile</li>
+              <Link to={`/${user.id}/garage`}>
+                <li className="nav-item">Garage</li>
+              </Link>
+              <Link to="/trades">
+                <li className="nav-item">Trades</li>
               </Link>
               <li className="dropdown-item" onClick={this.props.logout}>
                 Logout
