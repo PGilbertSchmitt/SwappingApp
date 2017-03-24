@@ -6,12 +6,12 @@ const IncomingTradeItem = (props) => {
   return (
     <div className="trade-item">
       <div className="trade-info">
-        <Link to={`/items/${trade.requester.item.id}`}>
-          &nbsp;{trade.requester.item.name}&nbsp;
-        </Link> for <Link to={`/${trade.receiver.id}/garage`}>
-          &nbsp;{trade.receiver.name}&nbsp;
-        </Link>'s <Link to={`/items/${trade.receiver.item.id}`}>
-          &nbsp;{trade.receiver.item.name}&nbsp;
+        <Link to={`/${trade.requester.id}/garage`}>
+          {trade.requester.name}'s
+        </Link>&nbsp;<Link to={`/items/${trade.requester.item.id}`}>
+          {trade.requester.item.name}
+        </Link>&nbsp;for your&nbsp;<Link to={`/items/${trade.receiver.item.id}`}>
+          {trade.receiver.item.name}
         </Link>
       </div>
 
