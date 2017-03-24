@@ -15,3 +15,5 @@ export const receiveSearchParam = param => ({
 export const cleanSearchParams = () => ({
   type: CLEAN_SEARCH_PARAMS
 });
+
+window.receiveSearchParam = receiveSearchParam;

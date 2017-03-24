@@ -34,7 +34,7 @@ class SearchPage extends Component {
         <div className="search-container">
           <Search />
 
-          <ItemIndex fetchParams={{ category: 'all' }} search={true} />
+          <ItemIndex fetchParams={{ category: 'all', non_self: true }} search={true} />
         </div>
       </div>
     );

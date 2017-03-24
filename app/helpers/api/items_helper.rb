@@ -25,6 +25,11 @@ module Api::ItemsHelper
 
     items = Item.where(item_params)
 
+    # If non_self is true, don't include current_user's items
+    if current_user && params[:non_self] == "true"
+      items = items.where.not(owner_id: current_user.id)
+    end
+
     # Matching words that show up in items names and descriptions,
     # and ordering them based on number of keywords each has
 

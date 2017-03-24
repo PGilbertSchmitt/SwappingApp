@@ -10,6 +10,7 @@ class Search extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateCheckbox = this.updateCheckbox.bind(this);
     this.props.cleanSearchParams();
+    props.receiveSearchParam({ non_self: true });
   }
 
   handleSubmit(e) {

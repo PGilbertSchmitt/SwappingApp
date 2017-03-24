@@ -41,7 +41,8 @@ class Garage extends Component {
       }
     };
     this.props.receiveSearchParam({
-      user_id: this.props.params.user_id
+      user_id: this.props.params.user_id,
+      non_self: false
     });
     props.fetchUserData(this.state.user_id);
     props.cleanUserErrors();

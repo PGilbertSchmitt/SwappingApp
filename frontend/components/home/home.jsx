@@ -7,7 +7,8 @@ class Home extends Component {
     super(props);
     this.props.receiveParam({
       user_id: null,
-      category: "all"
+      category: "all",
+      non_self: false
     });
   }
 

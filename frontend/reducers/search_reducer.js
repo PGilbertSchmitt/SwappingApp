@@ -9,6 +9,7 @@ import {
 const defaultState = {
   category: 'all',
   user_id: null,
+  non_self: false,
   search_words: []
 };
 
