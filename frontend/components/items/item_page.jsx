@@ -25,7 +25,6 @@ class ItemPage extends Component {
       this.props.getItem(newProps.params.itemId);
     }
 
-    console.log(newProps.currentItem);
     this.setState({
       currentItem: newProps.currentItem,
       itemId: newProps.params.itemId

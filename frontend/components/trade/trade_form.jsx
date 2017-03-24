@@ -27,7 +27,7 @@ class TradeForm extends Component {
   }
 
   update(e) {
-    this.setState({ offerItemId: e.target.value }, () => console.log("BOOP!"));
+    this.setState({ offerItemId: e.target.value });
   }
 
   handleSubmit() {
