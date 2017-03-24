@@ -1,16 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-User.create!(
-  email: "demo@swappinup.com",
-  password: "password",
-  fname: "Demo",
-  lname: "Smith",
-  address: "123 Street, City STATE 01234",
-  phone_number: "123-555-6789"
-)
+User.create!([
+  { email: "dude", password_digest: "$2a$10$H6rHOXZElaIfmo6tPSokwOkLhZOt/xfFf73RDTNniCGJFDqQ4kFW2", session_token: "yroGGb9DxBhbHM4ebPt_Tg", fname: nil, lname: nil, address: nil, phone_number: nil },
+  { email: "tim", password_digest: "$2a$10$wOcdIRTQlAVT4iB7aFL4XugBIlO9SmpCR7K4cpclO4LzeIbnB8QuC", session_token: "t9WUSHJIawbTzQmUxhdvWw", fname: nil, lname: nil, address: nil, phone_number: nil },
+  { email: "jill", password_digest: "$2a$10$B4FGQ.U2NT70FGnBM.WBwOsGUm.SJUUHVYFOiDDuy.4X8rlLFIBRS", session_token: "VdYIvjhs2QERvGBXQCBzAQ", fname: nil, lname: nil, address: nil, phone_number: nil },
+  { email: "jane", password_digest: "$2a$10$7DEsQBBcAdHR8JRV/bbuHuuVoTAlWQCn.GPwnjApFGIM4pxngePzK", session_token: "JhVW2sYptAUDZs3QhMHANw", fname: nil, lname: nil, address: nil, phone_number: nil },
+  { email: "Schmitt", password_digest: "$2a$10$txWmf5BkN2drSeSHpsu9YO57t6mGdg1jd1sewjy9Zqt4XM4ZiSJd2", session_token: "3v8xIKxD-7-0Ypwm6ZmAgA", fname: "", lname: "", address: "", phone_number: "" },
+  { email: "Benny", password_digest: "$2a$10$Byi8.QiT1Jx4yKYqK2SZ/.rB90bAheAXzj6MlPtN2WDSehriDxAVK", session_token: "4WY-txMTQ39mWN76EIlxEw", fname: "", lname: "", address: "", phone_number: "" },
+  { email: "gil", password_digest: "$2a$10$5LPF/3yHJZI3hn2ZadBTyu0FtvGgLc4qhXye8ALI9uMcvqNFsew86", session_token: "tDDZuLzvAllMSKSMCwSWbg", fname: nil, lname: nil, address: nil, phone_number: nil },
+  { email: "bill", password_digest: "$2a$10$Ft.tV84E23wQm7iLzmahtOfwZH/2dBD9TkUN1nbaoU7L3ycEmzNy.", session_token: "LAA9tuq9OyOct0rFH1YmiQ", fname: nil, lname: nil, address: nil, phone_number: nil },
+  { email: "basil", password_digest: "$2a$10$d8P7C4gpovfPLEV8jvyblOgUThIUO9zfBysJe8NsNwgqPL6Rwx1uS", session_token: "rIgtGUjYmg69sOil4_4y_A", fname: "", lname: "", address: "", phone_number: "" },
+  { email: "demo@swappinup.com", password_digest: "$2a$10$fW5Iiq9HIH/VpKIKgaa6pOEETboiU.l9S5wlJg7leq08jBh7B9kUe", session_token: "rr-jA6uGaJMmvNx_d4iv3Q", fname: "Demo", lname: "Smith", address: "123 Street, City STATE 01234", phone_number: "123-555-6789" },
+  { email: "Charming@gmail.com", password_digest: "$2a$10$dN/3blmatSt70SpKQDCcQu0cWVnX.VSv33.EuZ/qqgjsfAm8ysCJm", session_token: "1i3rcKEqbSmCotgLASJe6g", fname: "", lname: "", address: "", phone_number: "" },
+  { email: "email", password_digest: "$2a$10$0.Tmft.F7prPx3S6izgAKetJQHApjh0yX6Fvs1INUzGR/djxttzcy", session_token: "o4xAu_ujfxvHxXIkAt8WXg", fname: "last", lname: "first", address: "", phone_number: "" },
+  { email: "nugget", password_digest: "$2a$10$4883/LyrZVuw3l83sRez.uWLGADEPc/0Qwg1fGhzibtkgSgwxSws6", session_token: "cm5GnXioKuxuDD4Bp__dDA", fname: "", lname: "", address: "", phone_number: "" },
+  { email: "Juicy", password_digest: "$2a$10$M8J0bBarLNAE8y.Em/m52ekqonp1Lk/gEpfdl.bnlgcYSnDnE/sM6", session_token: "UU3ojpstcgYjM3M_HVxBKA", fname: "Lastname", lname: "Firstname", address: "", phone_number: "" },
+  { email: "Curis", password_digest: "$2a$10$8IubW7mD6hDqa6wz8HfTe.uMzZf8ctZcQ42pprryOTNTsOgVIXWKG", session_token: "JapceaepQtEHvvucnJWtBw", fname: "", lname: "", address: "", phone_number: "" }
+])
+Item.create!([
+  { owner_id: 11, name: "Gage", description: "Full of rage", photo_url: "v1490120026/zgs8wqrzurkmy5nfrivk.jpg", category: "jewelry" },
+  { owner_id: 15, name: "Another gage", description: "Beep", photo_url: "v1490124166/ovpcefgolz1d8mwxoxva.jpg", category: "kids" },
+  { owner_id: 15, name: "Raspberry Pi 4.0", description: "IT's a compuuter!", photo_url: "v1490128842/mmvxvpmsaw7rh7zaz9y6.jpg", category: "electronics" },
+  { owner_id: 11, name: "Glehc", description: "hejcjjvj", photo_url: "v1490136622/wkyp8cgr7byugdpks2at.png", category: "jewelry" },
+  { owner_id: 11, name: "jcjceaococi", description: "jafe;lj ;oi eja oi", photo_url: "v1490136638/tbetbqjffqkmus4dfpsh.png", category: "home_and_living" },
+  { owner_id: 11, name: "fish", description: "Fishy fishy swim swim swim", photo_url: "v1490286484/fohsfe9oo6bw8bylhoi6.jpg", category: "entertainment" },
+  { owner_id: 15, name: "Raspi v3", description: "Nice piece of hardware right here.", photo_url: "v1490119953/mvdiwhv0k9wtuhmhoglr.jpg", category: "clothing" },
+  { owner_id: 15, name: "Train", description: "Choo choo!!!", photo_url: "v1490121279/ix89allwzxczdsfiuvqz.jpg", category: "clothing" },
+  { owner_id: 15, name: "Chum", description: "A friendly friend", photo_url: "v1490122504/uzvhvmwtybiaiwmuci7k.jpg", category: "jewelry" },
+  { owner_id: 15, name: "Dallas", description: "He's here", photo_url: "v1490144971/s9xut6ubcfnn1wpz9740.png", category: "kids" },
+  { owner_id: 11, name: "Doodad", description: "It's does a bunch of stuff", photo_url: "v1490223009/rreysatul1zuvblt5jcm.jpg", category: "home_and_living" },
+  { owner_id: 11, name: "raspberry pi", description: "IT's a strong computer, the best even.", photo_url: "v1490122812/yy0edlowqdl1mvxpv9qp.jpg", category: "clothing" },
+  { owner_id: 15, name: "New thing", description: "Hello, I'm a thing!", photo_url: "v1490120078/qrbotdtqaymynjmh63vj.jpg", category: "jewelry" },
+  { owner_id: 11, name: "Super computer", description: "64 Raspis", photo_url: "v1490130777/pj9rdy5mx9uqzf7oaa9b.jpg", category: "electronics" },
+  { owner_id: 11, name: "A new thing", description: "IT's not like other things", photo_url: "v1490286442/kbptc3ay2vdrk2tbh3ww.jpg", category: "entertainment" },
+  { owner_id: 11, name: "Thing", description: "It does something maybe?", photo_url: "v1490119985/rbna39h52dmoodu36dod.jpg", category: "clothing" },
+  { owner_id: 15, name: "Bugo", description: "Loves nuggets", photo_url: "v1490119914/cs0p1qkhjxf1x3x2r0v3.png", category: "kids" }
+])

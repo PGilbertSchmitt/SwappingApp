@@ -14,7 +14,11 @@
 
 class Trade < ApplicationRecord
   after_initialize :initiate_pending
-  validates :requester, :receiver, :request_item, :offer_item, presence: true
+  validates :requester_id,
+            :receiver_id,
+            :request_item_id,
+            :offer_item_id,
+            presence: true
   validates_uniqueness_of :request_item_id, scope: [:offer_item_id]
   validates :status, presence: true, inclusion: %w(PENDING COMPLETE)
 

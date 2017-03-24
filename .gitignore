@@ -31,3 +31,5 @@ npm-debug.log
 
 # Heroku setup script
 hero.sh
+
+backup_seeds.rb
