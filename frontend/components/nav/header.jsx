@@ -25,7 +25,6 @@ class Header extends Component {
             <li className="nav-item">Search</li>
           </Link>
           <li className="nav-item">
-            {/*<i className="fa fa-user" alt="User Profile"></i>*/}
             Account
             <ul className="dropdown-menu">
               <Link to={`/${user.id}/garage`}>
