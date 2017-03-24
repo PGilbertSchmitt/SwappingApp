@@ -9,7 +9,6 @@ module Api::ItemsHelper
     # otherwise the database specificaly looks for NULL values
     user_id = params[:user_id]
     item_id = params[:item_id]
-    p item_id
 
     item_params[:owner_id] = params[:user_id] unless user_id && user_id.empty?
     item_params[:id] = params[:item_id] if item_id

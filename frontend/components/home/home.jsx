@@ -9,7 +9,7 @@ class Home extends Component {
     this.props.receiveParam({
       user_id: null,
       category: "all",
-      non_self: false,
+      non_self: false
     });
     this.state = {
       currentUserId: null
