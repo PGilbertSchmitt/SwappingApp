@@ -90,7 +90,7 @@ def remove_conflicts(trade)
 end
 ```
 
-After the items are traded, any trades involving either item (excluding the initial trade that started this) is destroyed.
+After the items are traded, any trades involving either item (excluding the initial trade that started this) are destroyed.
 
 ## Pending features
 
