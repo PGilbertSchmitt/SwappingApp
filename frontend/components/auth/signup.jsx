@@ -46,14 +46,25 @@ class Signup extends Component {
   }
 
   validForm() {
+    let valid = true;
+    
     const password = this.state.password;
     const confirm = this.state.confirmPassword;
     if (password !== confirm) {
       this.props.receiveError("Passwords do not match");
-      return false;
+      valid = false;
     }
 
-    return true;
+    const phoneRegex = /^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/;
+    
+    if (this.state.phone_number.length > 0) {
+      if (!this.state.phone_number.match(phoneRegex)) {
+        this.props.receiveError("Phone number not valid (xxx)-xxx-xxxx");
+        valid = false;
+      }
+    }
+
+    return valid;
   }
 
   clearPasswords() {
@@ -92,12 +103,17 @@ class Signup extends Component {
         <label className="form-label">First Name</label>
         <input
           className="form-item u-full-width"
-          onChange={this.update('lname')}
+          onChange={this.update('fname')}
           type="text" />
         <label className="form-label">Last Name</label>
         <input
           className="form-item u-full-width"
-          onChange={this.update('fname')}
+          onChange={this.update('lname')}
+          type="text" />
+        <label className="form-label">Phone Number</label>
+        <input
+          className="form-item u-full-width"
+          onChange={this.update('phone_number')}
           type="text" />
         <input
           className="form-button primary-button"
