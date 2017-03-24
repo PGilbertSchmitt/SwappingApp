@@ -68,7 +68,6 @@ class Root extends Component {
 
             <Route
               path="/:user_id/garage"
-              // Switch with profile
               component={Garage}>
             </Route>
 
