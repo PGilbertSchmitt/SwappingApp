@@ -13,11 +13,10 @@ export const createTrade = trade => (
   })
 );
 
-export const updateTrade = trade => (
+export const updateTrade = tradeId => (
   $.ajax({
     method: "PATCH",
-    url: `/api/trades/${trade.id}`,
-    data: { trade }
+    url: `/api/trades/${tradeId}`
   })
 );
 

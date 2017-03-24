@@ -16,7 +16,9 @@ const IncomingTradeItem = (props) => {
       </div>
 
       <div className="trade-info">
-        <button className="primary-button trade-button nice">
+        <button
+          className="primary-button trade-button nice"
+          onClick={props.updateTrade}>
           Accept
         </button>
 

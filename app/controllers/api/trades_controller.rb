@@ -1,7 +1,13 @@
 class Api::TradesController < ApplicationController
   def index
-    @outgoing_trades = current_user.outgoing_trades.order("created_at DESC")
-    @incoming_trades = current_user.incoming_trades.order("created_at DESC")
+    @outgoing_trades = current_user
+      .outgoing_trades
+      .where(status: "PENDING")
+      .order("created_at DESC")
+    @incoming_trades = current_user
+      .incoming_trades
+      .where(status: "PENDING")
+      .order("created_at DESC")
   end
 
   def create
@@ -15,9 +21,14 @@ class Api::TradesController < ApplicationController
   end
 
   def update
-    @trade = Trade.find_by(id: params[:id])
+    @trade = current_user.incoming_trades.find_by(id: params[:id])
 
-    if @trade.update_attributes(trade_params)
+    unless @trade
+      render json: ["No such trade"], status: 404
+      return
+    end
+
+    if @trade.update_attributes(status: "COMPLETE")
       render :show
     else
       render json: @trade.errors.full_messages, status: 422

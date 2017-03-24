@@ -26,6 +26,7 @@ class TradeIndex extends Component {
         <IncomingTradeItem
           key={key}
           trade={trade}
+          updateTrade={() => this.props.updateTrade(trade.id)}
           destroyTrade={() => this.props.destroyTrade(trade.id)} />
       );
     } else {

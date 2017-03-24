@@ -33,16 +33,19 @@ export const fetchTrades = () => dispatch => (
 
 export const createTrade = tradeIn => dispatch => (
   TradeApi.createTrade(tradeIn)
-    .done(trade => dispatch(receiveTrade(trade)))
+    // .done(trade => dispatch(receiveTrade(trade)))
     .fail(errors => console.log(errors))
 );
 
-export const updateTrade = tradeIn => dispatch => (
-  TradeApi.createTrade(tradeIn)
-    .done(trade => dispatch(receiveTrade(trade)))
+export const updateTrade = tradeId => dispatch => (
+  TradeApi.updateTrade(tradeId)
+    .done(trade => dispatch(removeTrade(trade)))
 );
 
 export const destroyTrade = tradeId => dispatch => (
   TradeApi.destroyTrade(tradeId)
     .done(trade => dispatch(removeTrade(trade)))
 );
+
+// For testing only
+window.updateTrade = updateTrade;
