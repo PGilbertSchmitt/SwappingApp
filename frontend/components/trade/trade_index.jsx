@@ -18,11 +18,23 @@ class TradeIndex extends Component {
     });
   }
 
+  // destroyTrade={() => this.props.destroyTrade(trade.id)}
+
   renderItem(type, key, trade) {
     if (type === "incomming") {
-      return (<IncomingTradeItem key={key} trade={trade} />);
+      return (
+        <IncomingTradeItem
+          key={key}
+          trade={trade}
+          destroyTrade={() => this.props.destroyTrade(trade.id)} />
+      );
     } else {
-      return (<OutgoingTradeItem key={key} trade={trade} />);
+      return (
+        <OutgoingTradeItem
+          key={key}
+          trade={trade}
+          destroyTrade={() => this.props.destroyTrade(trade.id)} />
+      );
     }
   }
 

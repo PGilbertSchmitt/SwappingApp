@@ -1,4 +1,4 @@
-json.id trade, :id
+json.id trade.id
 
 json.requester do
   json.id trade.requester_id

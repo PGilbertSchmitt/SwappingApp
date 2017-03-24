@@ -12,7 +12,7 @@ const mapStateToProps = ({ trades }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTrades: () => dispatch(fetchTrades()),
-  destroyTrades: tradeId => dispatch(destroyTrade(tradeId))
+  destroyTrade: tradeId => dispatch(destroyTrade(tradeId))
 });
 
 export default connect(

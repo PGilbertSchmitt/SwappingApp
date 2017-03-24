@@ -25,14 +25,13 @@ class Api::TradesController < ApplicationController
   end
 
   def destroy
-    @trade = Trade.find_by(id: params[:id]).includes(:requester, :receiver)
+    @trade = Trade.includes(:requester, :receiver).find_by(id: params[:id])
 
-    if @trade
-      if current_user.id == trade.requester.id ||
-         current_user.id == trade.receiver.id
+    if @trade && (current_user.id == @trade.requester.id ||
+                  current_user.id == @trade.receiver.id)
 
-        @trade.destroy
-      end
+      @trade.destroy
+      render :show
     else
       render json: ["Trade not found"], status: 404
     end

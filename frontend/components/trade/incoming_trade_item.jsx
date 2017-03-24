@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const IncomingTradeItem = ({ trade }) => {
+const IncomingTradeItem = (props) => {
+  const trade = props.trade;
   return (
     <div className="trade-item">
       <div className="trade-info">
@@ -20,7 +21,8 @@ const IncomingTradeItem = ({ trade }) => {
         </button>
 
         <button
-          className="primary-button trade-button mean">
+          className="primary-button trade-button mean"
+          onClick={props.destroyTrade}>
           Remove
         </button>
       </div>
