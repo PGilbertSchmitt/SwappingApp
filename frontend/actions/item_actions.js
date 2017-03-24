@@ -3,6 +3,7 @@ import * as ItemApi from '../util/item_util_api';
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
+export const RECEIVE_CURRENT_ITEM = "RECEIVE_CURRENT_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const RECEIVE_ITEM_ERRORS = "RECEIVE_ITEM_ERRORS";
 export const RECEIVE_ITEM_ERROR = "RECEIVE_ITEM_ERROR";
@@ -20,6 +21,11 @@ export const receiveListings = items => ({
 
 export const receiveItem = item => ({
   type: RECEIVE_ITEM,
+  item
+});
+
+export const receiveCurrentItem = item => ({
+  type: RECEIVE_CURRENT_ITEM,
   item
 });
 
@@ -56,7 +62,7 @@ export const getItemListings = id => dispatch => (
 
 export const getItem = itemId => dispatch => (
   ItemApi.getItem(itemId)
-    .done(item => dispatch(receiveItem(item)))
+    .done(item => dispatch(receiveCurrentItem(item)))
 );
 
 export const createItem = itemIn => dispatch => (
